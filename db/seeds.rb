@@ -3,15 +3,17 @@
     {
       "id": 28,
       "name": "Action",
-      "picture":
+      "picture": "cinema-clapperboard.png"
     },
     {
       "id": 12,
-      "name": "Adventure"
+      "name": "Adventure",
+      "picture": "earth-globe.png"
     },
     {
       "id": 16,
-      "name": "Animation"
+      "name": "Animation",
+      "picture": "princess-face.png"
     },
     {
       "id": 35,
@@ -20,15 +22,18 @@
     },
     {
       "id": 80,
-      "name": "Crime"
+      "name": "Crime",
+      "picture": "fingerprint.png"
     },
     {
       "id": 99,
-      "name": "Documentary"
+      "name": "Documentary",
+      "picture": "leaf.png"
     },
     {
       "id": 18,
-      "name": "Drama"
+      "name": "Drama",
+      "picture": "drop.png"
     },
     {
       "id": 10751,
@@ -62,19 +67,23 @@
     },
     {
       "id": 10749,
-      "name": "Romance"
+      "name": "Romance",
+      "picture": "like.png"
     },
     {
       "id": 878,
-      "name": "Science Fiction"
+      "name": "Science Fiction",
+      "picture": "outer-space-alien.png"
     },
     {
       "id": 10770,
-      "name": "TV Movie"
+      "name": "TV Movie",
+      "picture": "television.png"
     },
     {
       "id": 53,
-      "name": "Thriller"
+      "name": "Thriller",
+      "picture": "pipe.png"
     },
     {
       "id": 10752,
@@ -83,7 +92,8 @@
     },
     {
       "id": 37,
-      "name": "Western"
+      "name": "Western",
+      "picture": "sheriff-badge.png"
     }
   ]
 }
