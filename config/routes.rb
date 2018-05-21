@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:create, :new]
 
   namespace :my do
-    constraints subdomain: 'my' do
-      resources :movies, only: :index
-    end
+    resources :movies, only: :index
   end
 
 end
