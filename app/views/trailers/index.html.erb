@@ -1,9 +1,7 @@
 <h1>Index Trailer</h1>
 
-<% movie = @movies.first %>
-  <%= movie %>
-  <hr>
-  <%= key = movie['videos']['results'].first['key'] %>
+  <% movie = @movies.first %>
+  <% key = movie['videos']['results'].first['key'] %>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   <hr>
 
