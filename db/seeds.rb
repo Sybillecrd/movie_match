@@ -3,6 +3,7 @@ puts "Starting seed"
 Opinion.destroy_all
 User.destroy_all
 Movie.destroy_all
+Genre.destroy_all
 
 @genres = [
   {
