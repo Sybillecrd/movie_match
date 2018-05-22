@@ -102,9 +102,9 @@ Movie.destroy_all
   }
 ]
 
-User.create!(first_name: "Sybille", last_name: "Cordeau", address: "Bordeaux", email: "sybille@movie.com")
-Movie.create!(tmdb_id: 550, title: "Fight Club", release_date: "11-10-1999")
-Opinion.create!(movie_id: 1, user_id: 1, value: true)
+sybille = User.create!(first_name: "Sybille", last_name: "Cordeau", address: "Bordeaux", email: "sybille@movie.com")
+fight_club = Movie.create!(tmdb_id: 550, title: "Fight Club", release_date: "11-10-1999")
+Opinion.create!(movie_id: fight_club.id, user_id: sybille.id, value: true)
 
 @genres.each do |genre|
   Genre.create!(tmdb_id: genre[:tmdb_id], name: genre[:name], picture: genre[:picture])
