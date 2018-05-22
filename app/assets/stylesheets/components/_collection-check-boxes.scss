@@ -2,6 +2,8 @@
   display: flex;
   flex: 0 0 30%;
   flex-wrap: wrap;
+  font-size: 16px;
+
 
   input, .checked  {
     display: none;
@@ -9,25 +11,24 @@
   label {
     cursor: pointer;
   }
+  .picture {
+    height: 100px;
+    width: 100px;
+  }
   .check-box {
     background: #CCC;
     border-radius: 3px;
-    padding: 6px 10px;
+    padding:18px 10px;
     color: white;
-    margin: 5px;
+    margin: 10px 3px 5px 12px;
     font-weight: normal;
+    height: 156px;
+    width: 125px;
   }
 
-  input:checked + .check-box .checked {
-    display: none;
-    visibility: hidden;
-  }
-  input:checked + .check-box .unchecked {
-    display: none;
-    visibility: hidden;
-  }
   input:checked + .check-box {
     background: $green;
   }
-
 }
+ // vertical horizontal
+ /* haut | droit | bas | gauche */
