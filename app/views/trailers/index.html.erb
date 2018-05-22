@@ -1,9 +1,22 @@
 <h1>Index Trailer</h1>
 
-<% movie = @movies.first %>
-  <%= movie %>
-  <hr>
-  <%= key = movie['videos']['results'].first['key'] %>
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <% movie = @movies.first %>
+  <% key = movie['videos']['results'].first['key'] %>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  <hr>
+
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
