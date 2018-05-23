@@ -9,7 +9,7 @@ Genre.destroy_all
   {
     "tmdb_id": 28,
     "name": "Action",
-    "picture": "cinema-clapperboard.png"
+    "picture": "cinema-clapperboard.svg"
   },
   {
     "tmdb_id": 12,
