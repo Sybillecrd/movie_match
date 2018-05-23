@@ -1,0 +1,11 @@
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-xs-6">
+      <%= link_to image_tag("#{movie.poster}", style:"height: 297px; width: 210px;"), my_movie_path(movie) %>
+      <%= movie.title %>
+      <%= movie.release_date %>
+    </div>
+</div>
+
+  <% end %>
+
