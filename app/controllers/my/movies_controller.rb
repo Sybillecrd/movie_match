@@ -3,6 +3,10 @@ class My::MoviesController < ApplicationController
     # get user_id
     # if user opinion: true => get movie_id
    @movies = Movie.joins(:opinions).where(opinions: {value: true, user_id: current_user})
-   @tmdb_ids = @movies[0]['tmdb_id']
+   # @tmdb_ids = @movies[0]['tmdb_id']
+  end
+
+  def show
+
   end
 end
