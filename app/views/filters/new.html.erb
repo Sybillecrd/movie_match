@@ -1,6 +1,6 @@
 <div class="container">
   <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-    <%= f.input :moment, label: "What are you looking for?", collection: @moments, as: :radio_buttons%>
+    <%= f.input :moment, label: "What are you looking for?", collection: @moments, as: :radio_buttons, type: "checkbox"%>
     <hr>
 
     <h4> Pick your favorite genres:</h4>
@@ -14,7 +14,7 @@
                 <i class="fa fa-check-square-o checked" aria-hidden="true"></i>
                 <i class="fa fa-square-o unchecked" aria-hidden="true"></i>
                 <%= image_tag input.object.picture, class: "picture" %>
-                <span class: "text-icon" > <%= input.text %></span>
+                <div class="text-icon" > <%= input.text %></div>
               </div>
             </label>
           </div>

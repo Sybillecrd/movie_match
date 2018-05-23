@@ -44,6 +44,7 @@ body {
 h4, .col-form-label {
   font-family: $body-font;
   color: $grey-typo;
+  font-weight: normal;
 }
 
 .btn-block {
@@ -57,5 +58,11 @@ h4, .col-form-label {
 }
 
 .text-icon {
-  margin: 10px;
+  margin-top: 10px;
+}
+
+.collection_radio_buttons {
+  font-size: 16px;
+  font-weight: normal;
+  font-family: $body-font;
 }
