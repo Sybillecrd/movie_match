@@ -1,22 +1,28 @@
 <h1>Index Trailer</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <% movie = @movies.first %>
+            <% key = movie['videos']['results'].first['key'] %>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="item">
+            <% movie = @movies.first %>
+            <% key = movie['videos']['results'].first['key'] %>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="item">
+            <% movie = @movies.first %>
+            <% key = movie['videos']['results'].first['key'] %>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <% movie = @movies.first %>
-      <% key = movie['videos']['results'].first['key'] %>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      <div class="carousel-caption">
-        ...
+        </div>
       </div>
     </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
   </div>
 </div>
 
