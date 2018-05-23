@@ -3,6 +3,7 @@
   flex: 0 0 30%;
   flex-wrap: wrap;
   font-size: 16px;
+  text-align: center;
 
 
   input, .checked  {
@@ -15,20 +16,46 @@
     height: 100px;
     width: 100px;
   }
+
   .check-box {
-    background: #CCC;
+    background: #1d2024;
     border-radius: 3px;
-    padding:18px 10px;
-    color: white;
+    padding:18px 5px;
+    color: $grey-typo;
     margin: 10px 3px 5px 12px;
     font-weight: normal;
-    height: 156px;
-    width: 125px;
+    height: 168px;
+    width: 136px;
   }
 
   input:checked + .check-box {
-    background: $green;
+    background: $red-btn;
+    color: black;
   }
 }
- // vertical horizontal
- /* haut | droit | bas | gauche */
+
+body {
+  background-color: $grey-background;
+  color: $grey-typo;
+  font-family: $body-font;
+  font-weight: lighter;
+}
+
+h4, .col-form-label {
+  font-family: $body-font;
+  color: $grey-typo;
+}
+
+.btn-block {
+  color: white;
+  background-color: $red-btn;
+  border-radius: 50px;
+}
+.btn-block:hover {
+  color: white;
+  background-color: $red-btn-hover;
+}
+
+.text-icon {
+  margin: 10px;
+}

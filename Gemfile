@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'rest-client'
+gem 'inline_svg'
 
 
 group :development do
