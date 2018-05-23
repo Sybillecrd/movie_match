@@ -27,7 +27,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%= link_to "My preferences", new_filter_path %></li>
         <li><%= link_to "My movies", my_movies_path %></li>
-        <li><a href="#">Log out</a></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   </div>
