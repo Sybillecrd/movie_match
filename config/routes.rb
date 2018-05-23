@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:create, :new]
 
   namespace :my do
-    resources :movies, only: :index
+    resources :movies, only: [:index, :show]
   end
 
 end
