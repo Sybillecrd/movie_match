@@ -29,6 +29,11 @@
   <% f.input :opinion, input_html: { value: true } %>
   <% f.input :tmdb_id, input_html: { value: @movie[:id]}   %>
   <%= f.button :submit, "like" %>
+
+  <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
+  <% f.input :opinion, input_html: { value: false } %>
+  <% f.input :tmdb_id, input_html: { value: @movie[:id]}   %>
+  <%= f.button :submit, "dislike" %>
   <% end %>
 </div>
 
