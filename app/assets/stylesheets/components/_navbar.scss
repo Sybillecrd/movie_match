@@ -55,7 +55,7 @@
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: bold !important;
-  color: rgba(0, 234, 255, 1) !important;
+  color: white !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
@@ -75,12 +75,13 @@
   top: -6px;
   background-color: rgba(40, 40, 40, 1);
   transform: rotate(45deg);
-  border-left: 1px solid rgba(0, 234, 255, 1);
-  border-top: 1px solid rgba(0, 234, 255, 1);
+  border-left: 1px solid white;
+  border-top: 1px solid white;
 }
 
 .dropdown-menu.dropdown-menu-right.navbar-wagon-dropdown-menu {
   background-color: rgba(40, 40, 40, 1);
+  border-radius: 0px!important;
 }
 
 .dropdown-menu.dropdown-menu-right.navbar-wagon-dropdown-menu:before {
@@ -88,5 +89,5 @@
 }
 
 .fa-bars {
-  color: rgba(0, 234, 255, 1);
+  color: white;
 }
