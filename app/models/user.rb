@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :movies, through: :opinions
 
   validates :first_name, presence: true
-  validates :address, presence: true
+  validates :last_name, presence: true
 end
