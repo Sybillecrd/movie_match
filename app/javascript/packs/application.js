@@ -1,1 +1,3 @@
 import "bootstrap";
+
+global.$ = jQuery;

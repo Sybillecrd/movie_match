@@ -13,8 +13,12 @@ class OpinionsController < ApplicationController
       movie.poster = movie_info["poster_path"]
       movie.release_date = movie_info["release_date"]
     end
-    @opinion = Opinion.create(movie_id: @movie.id, user_id: current_user.id, value: params_taste["value"])
+    @opinion = Opinion.new(movie_id: @movie.id, user_id: current_user.id, value: params_taste["value"])
     @next_movie = TMDB::Movie.details(params_taste["next_tmdb_id"])
+    @opinion.save
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
