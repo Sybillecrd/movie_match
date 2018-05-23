@@ -15,8 +15,8 @@ module TMDB
         option_moment = "&primary_release_date.gte=#{starting_date}&primary_release_date.lte=#{ending_date}"
       else
         option_moment = ""
+        byebug
       end
-
       url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['TMDB_KEY']}&language=en-US#{option_moment}#{genres_options}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
       api_data = RestClient.get(url)
       datas = JSON.parse(api_data)
