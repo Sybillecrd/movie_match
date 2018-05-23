@@ -1,28 +1,41 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <div id="carousel-example-generic" class="carousel slide">
         <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <% movie = @movies.first %>
-            <% key = movie['videos']['results'].first['key'] %>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-          <div class="item">
-            <% movie = @movies.first %>
-            <% key = movie['videos']['results'].first['key'] %>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-          <div class="item">
-            <% movie = @movies.first %>
-            <% key = movie['videos']['results'].first['key'] %>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+          <% @movies.each_with_index do |movie, index| %>
+            <div class="item <%= "active" if index.zero? %>">
+              <%# key = movie['videos']['results'].first['key'] %>
+              <% key = movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
+              <% if key.present? %>
+                <%= render "trailers/youtube_iframe", youtube_key: key %>
+              <% end %>
+
+              <%= movie['title'] %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+
+  <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
+    <%= f.input :value, input_html: { value: true }, as: :hidden %>
+    <%= f.input :tmdb_id, input_html: { value: @movie["id"] }, as: :hidden %>
+    <%= f.input :next_tmdb_id, input_html: { value: @movies[1]["id"] }, as: :hidden %>
+    <%= f.button :submit, "like" %>
+  <% end %>
+
+  <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
+    <%= f.input :value, input_html: { value: false }, as: :hidden %>
+    <%= f.input :tmdb_id, input_html: { value: @movie["id"]}, as: :hidden %>
+    <%= f.input :next_tmdb_id, input_html: { value: @movies[1]["id"]}, as: :hidden %>
+    <%= f.button :submit, "dislike" %>
+  <% end %>
 </div>
+
+
+
 
 
 

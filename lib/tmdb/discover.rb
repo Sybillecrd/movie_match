@@ -18,9 +18,6 @@ module TMDB
       end
 
       url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['TMDB_KEY']}&language=en-US#{option_moment}#{genres_options}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
-      puts "=" * 20
-      puts url
-      puts "=" * 20
       api_data = RestClient.get(url)
       datas = JSON.parse(api_data)
       movies = datas['results']

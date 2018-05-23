@@ -9,5 +9,6 @@ class TrailersController < ApplicationController
 
     @movies = TMDB::Discover.movie(discover_options)
     @movies[0] = TMDB::Movie.details(@movies.first['id'])
+    @movie = @movies[0]
   end
 end
