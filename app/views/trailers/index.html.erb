@@ -2,6 +2,6 @@
 
   <% movie = @movies.first %>
   <% key = movie['videos']['results'].first['key'] %>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  <hr>
 
+
+ <iframe  src="https://www.youtube.com/embed/<%= key %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
