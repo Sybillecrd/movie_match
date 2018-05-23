@@ -24,7 +24,7 @@ class OpinionsController < ApplicationController
   private
 
   def params_taste
-      params.require(:opinion).permit(:value, :tmdb_id, :next_tmdb_id )
+    params.require(:opinion).permit(:value, :tmdb_id, :next_tmdb_id )
   end
 
 end
