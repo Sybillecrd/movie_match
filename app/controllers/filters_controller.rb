@@ -1,7 +1,7 @@
 class FiltersController < ApplicationController
   def new
     @genres = Genre.all
-    @moments = ["Now", "Cinema", "Later"]
+    @moments = ["Find a movie to watch at home now", "Find a movie now playing in theaters", "Be aware of the great movies upcoming"]
   end
 
   def create
