@@ -103,7 +103,7 @@ Genre.destroy_all
   }
 ]
 
-sybille = User.create!(first_name: "Sybille", last_name: "Cordeau", address: "Bordeaux", email: "sybille@movie.com")
+sybille = User.create!(first_name: "Sybille", last_name: "Cordeau", password: "secret", address: "Bordeaux", email: "sybille@movie.com")
 fight_club = Movie.create!(tmdb_id: 550, title: "Fight Club", release_date: "11-10-1999")
 Opinion.create!(movie_id: fight_club.id, user_id: sybille.id, value: true)
 
