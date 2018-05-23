@@ -2,7 +2,22 @@ module TMDB
   class Discover
     def self.movie(options = {})
       genres_options = options[:genre_ids].present? ? "&with_genres=#{options[:genre_ids].join(",")}" : ""
-      url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['TMDB_KEY']}&language=en-US#{genres_options}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
+
+      if options[:moment].include?("home")
+        search_date = (DateTime.now - 30).to_s("yyyyMMdd").first(10)
+        option_moment = "&primary_release_date.lte=#{search_date}"
+      elsif options[:moment].include?("upcoming")
+        search_date = (DateTime.now + 7).to_s("yyyyMMdd").first(10)
+        option_moment = "&primary_release_date.gte=#{search_date}"
+      elsif options[:moment].include?("theaters")
+        starting_date = (DateTime.now - 30).to_s("yyyyMMdd").first(10)
+        ending_date = (DateTime.now).to_s("yyyyMMdd").first(10)
+        option_moment = "&primary_release_date.gte=#{starting_date}&primary_release_date.lte=#{ending_date}"
+      else
+        option_moment = ""
+      end
+
+      url = "https://api.themoviedb.org/3/discover/movie?api_key=#{ENV['TMDB_KEY']}&language=en-US#{option_moment}#{genres_options}&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
       puts "=" * 20
       puts url
       puts "=" * 20
