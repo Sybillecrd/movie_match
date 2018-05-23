@@ -1,26 +1,29 @@
 <div class="container">
-  <div class="row">
-    <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-      <%= f.input :moment, label: "When do you want to watch a movie?", collection: @moments %>
-      <div class="col-xs-6">
-        <div class="collection-check-boxes">
-          <%= f.collection_check_boxes :genre_ids, @genres, :tmdb_id, :name do |input| %>
+  <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
+    <%= f.input :moment, label: "What are you looking for?", collection: @moments, as: :radio_buttons %>
+    <hr>
+
+    <h4> Pick your favorite genres:</h3>
+    <div class="collection-check-boxes">
+      <div class="row">
+        <%= f.collection_check_boxes :genre_ids, @genres, :tmdb_id, :name do |input| %>
+          <div class="col-xs-6">
             <label>
               <%= input.check_box %>
               <div class="check-box">
                 <i class="fa fa-check-square-o checked" aria-hidden="true"></i>
                 <i class="fa fa-square-o unchecked" aria-hidden="true"></i>
-                <%= image_tag input.object.picture %>
+                <%= image_tag input.object.picture, class: "picture" %>
                 <%= input.text %>
               </div>
             </label>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
+    </div>
 
-      <%= f.button :submit, class: "btn btn-primary btn-block"  %>
-    <% end %>
-  </div>
+    <%= f.button :submit, class: "btn btn-primary btn-block"  %>
+  <% end %>
 </div>
 
 
