@@ -2,27 +2,27 @@ html, body {
   min-height: 100vh;
 }
 
-body {
+body.flex-column {
   display: flex;
   flex-direction: column;
+  .backdrop {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    .backdrop-img {
+      background-size: cover;
+      filter: blur(15px);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .backdrop-content {
+      z-index: 10;
+      position:relative;
+      padding-top: 10px;
+    }
+  }
 }
 
-.backdrop {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  .backdrop-img {
-    background-size: cover;
-    filter: blur(15px);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  .backdrop-content {
-    z-index: 10;
-    position:relative;
-    padding-top: 10px;
-  }
-}
