@@ -4,12 +4,23 @@
 
 <% key = @next_movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
 console.log("<%= key %>");
-$('.carousel .active').next().prepend("<%= j render "trailers/youtube_iframe", youtube_key: key  %>");
 
-// 2. slide to next slide to show the new trailer
+ <% if ((key)!= nil) %>
 
-$('.carousel').carousel("next");
+  $('.carousel .active').next().prepend("<%= j render "trailers/youtube_iframe", youtube_key: key  %>");
+  // 2. slide to next slide to show the new trailer
+  $('.carousel').carousel("next");
+  setTimeout(function(){
+    $('.carousel .item').first().remove();
+  }, 1000);
+<% else %>
+  $('.carousel .active').next().remove();
+  $('.carousel .active').next().prepend("<%= j render "trailers/youtube_iframe", youtube_key: key  %>");
+  // 2. slide to next slide to show the new trailer
+  $('.carousel').carousel("next");
+  setTimeout(function(){
+    $('.carousel .item').first().remove();
+  }, 1000);
+<% end %>
 
-setTimeout(function(){
-  $('.carousel .item').first().remove();
-}, 1000);
+
