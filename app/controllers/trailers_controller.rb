@@ -7,12 +7,12 @@ class TrailersController < ApplicationController
     discover_options[:genre_ids] = JSON.parse(cookies[:genre_ids]) if cookies[:genre_ids].present?
     discover_options[:moment] = cookies[:moment]
 
-    if TMDB::Discover.movie(discover_options).empty?
-      @movies = TMDB::Discover.movie(discover_options)
-    else
-      @movies = TMDB::Discover.movie(discover_options)
-      @movies[0] = TMDB::Movie.details(@movies.first['id'])
-      @movie = @movies[0]
+    @trailers = TMDB::Discover.movie(discover_options)
+    session[:selected_trailers] = @trailers.map { |trailer| trailer['id'] }
+    session[:page] = 1
+
+    if @trailers.any?
+      @trailer = TMDB::Movie.details(@trailers.first['id'])
     end
   end
 end

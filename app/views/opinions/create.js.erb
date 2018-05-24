@@ -1,26 +1,14 @@
-// @next_movie
+<% if @next_trailer %>
+  // insérer dans carousel-inner le partial du next trailer
+  $('.carousel-inner').append('<%= j render "trailers/trailer", trailer: @next_trailer, active: false %>');
 
-// 1. prepend in next slide the iframe
-
-
-<% key = @next_movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
-
-<% if ((key)!= nil) %>
-  $('.carousel .active').next().prepend("<%= j render "trailers/youtube_iframe", youtube_key: key  %>");
-  // 2. slide to next slide to show the new trailer
+  // slide carousel
   $('.carousel').carousel("next");
+
+  // delete previous slide
   setTimeout(function(){
     $('.carousel .item').first().remove();
   }, 1000);
 <% else %>
-    $('.carousel .active').next().remove();
-    $('.carousel .active').next().prepend("<%= j render "trailers/youtube_iframe", youtube_key: key  %>");
-    // 2. slide to next slide to show the new trailer
-    $('.carousel').carousel("next");
-    setTimeout(function(){
-      $('.carousel .item').first().remove();
-    }, 1000);
+  alert('no more movies');
 <% end %>
-
-
-
