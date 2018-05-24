@@ -12,9 +12,9 @@
           <div class="movie-year">
             <%= movie.release_year %>
           </div>
-          <div class="movie-link">
-            <%= link_to "", my_movie_path(movie) %>
-          </div>
+
+            <%= link_to "", my_movie_path(movie), class: "movie-link" %>
+
         </div>
       </div>
     <% end %>

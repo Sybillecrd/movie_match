@@ -7,6 +7,8 @@ class My::MoviesController < ApplicationController
   end
 
   def show
-
+    movie = Movie.find(params[:id])
+    @movie = TMDB::Movie.details(movie.tmdb_id)
   end
+
 end
