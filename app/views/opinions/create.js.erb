@@ -3,9 +3,13 @@
 // 1. prepend in next slide the iframe
 
 <% key = @next_movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
+console.log("<%= key %>");
 $('.carousel .active').next().prepend("<%= j render "trailers/youtube_iframe", youtube_key: key  %>");
 
 // 2. slide to next slide to show the new trailer
-// $('.carousel .active');
+
 $('.carousel').carousel("next");
 
+setTimeout(function(){
+  $('.carousel .item').first().remove();
+}, 1000);
