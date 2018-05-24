@@ -14,15 +14,15 @@
               <div class="botton">
                 <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
                   <%= f.input :value, input_html: { value: true }, as: :hidden %>
-                  <%= f.input :tmdb_id, input_html: { value: @movie["id"] }, as: :hidden %>
-                  <%= f.input :next_tmdb_id, input_html: { value: @movies[1]["id"] }, as: :hidden %>
+                  <%= f.input :tmdb_id, input_html: { value: movie["id"] }, as: :hidden %>
+                  <%= f.input :next_tmdb_id, input_html: { value: @movies[index + 1].try(:[], "id") }, as: :hidden %>
                   <%= f.button :submit, "like", class: "btn btn-success" %>
                 <% end %>
 
                 <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
                   <%= f.input :value, input_html: { value: false }, as: :hidden %>
-                  <%= f.input :tmdb_id, input_html: { value: @movie["id"]}, as: :hidden %>
-                  <%= f.input :next_tmdb_id, input_html: { value: @movies[1]["id"]}, as: :hidden %>
+                  <%= f.input :tmdb_id, input_html: { value: movie["id"]}, as: :hidden %>
+                  <%= f.input :next_tmdb_id, input_html: { value: @movies[index + 1].try(:[], "id") }, as: :hidden %>
                   <%= f.button :submit, "dislike", class: "btn btn-danger"  %>
                 <% end %>
               </div>

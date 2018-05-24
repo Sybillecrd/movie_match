@@ -1,4 +1,4 @@
-require 'tmdb/tmdb'
+
 
 class TrailersController < ApplicationController
   def index
