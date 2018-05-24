@@ -1,5 +1,6 @@
 .carousel-inner {
     height: 500px;
+    width: 100% !important;
 }
 
 .carousel-inner .item {
@@ -8,8 +9,8 @@
     max-height: 100%;
 }
 
-.carousel-inner .item img {
-    width: 100%;
-    min-height: 100%;
-    max-height: none;
+.botton {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
 }
