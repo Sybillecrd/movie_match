@@ -59,7 +59,7 @@ Genre.destroy_all
   {
     "tmdb_id": 27,
     "name": "Horror",
-    "picture": "human-skull"
+    "picture": "human-skull.png"
   },
   {
     "tmdb_id": 10402,
