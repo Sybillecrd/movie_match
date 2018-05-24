@@ -6,7 +6,7 @@
     <h4> Pick your favorite genres:</h4>
     <div class="collection-check-boxes">
       <div class="row">
-        <%= f.collection_check_boxes :genre_ids, @genres, :tmdb_id, :name do |input| %>
+        <%= f.collection_check_boxes :genre_ids, @genres, :tmdb_id, :name, checked: @selected_genre_ids do |input| %>
           <div class="col-xs-6">
             <label>
               <%= input.check_box %>
