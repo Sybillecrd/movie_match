@@ -1,22 +1,19 @@
 
-<div class="container-fluid">
-  <div class="background-img">
-    <div class="block">
-      <div class="row">
-
-        <div class="poster col-xs-6">
-          <%= image_tag "https://image.tmdb.org/t/p/w500/#{@movie['poster_path']}" %>
-        </div>
-        <div class="infos col-xs-6">
-          <h2><%= @movie['original_title'] %></h2>
-          <p><%= @movie['release_date'] %></p>
-          <p><%= @movie['genres'][0]['name'] %>,<%= @movie['genres'][1]['name'] %></p>
+<div class="backdrop">
+  <div class="backdrop-img" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<%= "https://image.tmdb.org/t/p/w500/#{@movie['backdrop_path']}" %>')"></div>
+  <div class="container-fluid backdrop-content">
+    <div class="row">
+      <div class="poster col-xs-6">
+        <%= image_tag "https://image.tmdb.org/t/p/w500/#{@movie['poster_path']}" %>
+      </div>
+      <div class="infos col-xs-6">
+        <h2><%= @movie['original_title'] %></h2>
+        <p><%= @movie['release_date'] %></p>
+        <p><%= @movie['genres'][0]['name'] %>,<%= @movie['genres'][1]['name'] %></p>
       </div>
     </div>
-      <div class="synopsis">
-        <p><%= @movie['overview'] %></p>
-      </div>
-
+    <div class="synopsis">
+      <p><%= @movie['overview'] %></p>
+    </div>
   </div>
 </div>
-
