@@ -1,6 +1,6 @@
 <div class="container">
   <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-    <%= f.input :moment, label: "What are you looking for?", collection: @moments, as: :radio_buttons, type: "checkbox"%>
+    <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox"%>
     <hr>
 
     <h4> Pick your favorite genres:</h4>

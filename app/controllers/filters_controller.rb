@@ -3,6 +3,7 @@ class FiltersController < ApplicationController
     @genres = Genre.all
     @moments = ["Find a movie to watch at home now", "Find a movie now playing in theaters", "Be aware of the great movies upcoming"]
     @selected_genre_ids = JSON.parse(cookies[:genre_ids]) if cookies[:genre_ids].present?
+    @selected_moment = cookies[:moment] if cookies[:moment].present?
   end
 
   def create
