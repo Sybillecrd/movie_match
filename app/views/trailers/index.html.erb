@@ -8,7 +8,7 @@
             <h4>We haven't any trailer matching your preferences...</h4>
             <%= button_to "Change my preferences", new_filter_path, method: :get, class: "btn btn-danger" %>
           <% else %>
-            <%= render "trailers/trailer", trailer: @trailer, active: true %>
+            <%= render "trailers/trailer", trailer: @next_trailer, active: true %>
           <% end %>
         </div>
       </div>
