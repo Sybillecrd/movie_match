@@ -35,6 +35,21 @@ class OpinionsController < ApplicationController
         @next_trailer = nil
         break
       end
+
+      current_user_tmdb_ids = []
+      current_user.movies.each do |movie|
+          current_user_tmdb_ids << movie.tmdb_id
+      end
+
+      while current_user_tmdb_ids.include?(next_tmdb_id)
+        next_tmdb_id_index += 1
+        next_tmdb_id = session[:selected_trailers][next_tmdb_id_index]
+        if next_tmdb_id.nil?
+          @next_trailer = nil
+          break
+        end
+      end
+
       @next_trailer = TMDB::Movie.details(next_tmdb_id)
       youtube_id = true if @next_trailer.dig('videos', 'results').try(:first).try(:dig, 'key')
       puts "=" * 20
