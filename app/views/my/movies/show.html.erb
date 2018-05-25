@@ -11,7 +11,9 @@
       <div class="infos col-xs-6">
         <h2><%= @movie['original_title'] %></h2>
         <p><%= @movie['release_date'] %></p>
-        <p><%= @movie['genres'][0]['name'] %>,<%= @movie['genres'][1]['name'] %></p>
+        <% @movie['genres'].each do |genre| %>
+        <%= genre['name'] %>
+        <% end %>
       </div>
     </div>
     <div class="synopsis">
