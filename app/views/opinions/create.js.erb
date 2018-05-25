@@ -10,5 +10,11 @@
     $('.carousel .item').first().remove();
   }, 1000);
 <% else %>
-  alert('no more movies');
+  $('.carousel-inner').append('<%= j render "trailers/no_more_movies", active: false %>');
+  $('.carousel').carousel("next");
+
+  // delete previous slide
+  setTimeout(function(){
+    $('.carousel .item').first().remove();
+  },);
 <% end %>
