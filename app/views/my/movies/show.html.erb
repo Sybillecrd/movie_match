@@ -18,4 +18,10 @@
       <p><%= @movie['overview'] %></p>
     </div>
   </div>
+  <div class="mm-modal">
+    <%= link_to "x", my_movie_path(@movie), class: "button-quit" %>
+    <% key = @movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
+    <%= render "trailers/youtube_iframe", class: "video", youtube_key: key %>
+  </div>
 </div>
+
