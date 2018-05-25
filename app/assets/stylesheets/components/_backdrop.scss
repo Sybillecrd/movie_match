@@ -31,10 +31,13 @@ body.flex-column {
       right: 0px;
       background-color: rgba(black, 0.6);
       z-index: 20;
-      display: flex;
       align-items: center;
       justify-content: center;
       display: none;
+      &.active {
+        display: flex;
+
+      }
 
       .button-quit {
         position: absolute;
@@ -43,6 +46,15 @@ body.flex-column {
         text-decoration: none;
         color: white;
         padding: 10px;
+      }
+
+      .mm-modal-quit {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -3;
       }
     }
   }
