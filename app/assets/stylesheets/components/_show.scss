@@ -1,10 +1,39 @@
+
 .background-img {
   display: flex;
+  position: relative;
+
 }
 
 
-.poster img{
-  width: 100%;
+.poster {
+  position: relative;
+  &::after {
+    content: "►";
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 92px;
+    margin-left: -36px;
+    margin-top: -70px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    opacity: 0.8;
+  }
+
+  img{
+    width: 100%;
+    position: relative;
+  }
+
+}
+
+.trailer-link a{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 .infos {
