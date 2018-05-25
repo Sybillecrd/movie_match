@@ -6,7 +6,7 @@ class OpinionsController < ApplicationController
     @movie = Movie.find_or_create_by(tmdb_id: params_taste["tmdb_id"]) do |movie|
       movie_info = TMDB::Movie.details(movie[:tmdb_id])
       movie.title = movie_info["title"]
-      movie.poster = "https://image.tmdb.org/t/p/w500" + movie_info["poster_path"].to_s
+      movie.poster = movie_info["poster_path"].to_s
       movie.release_date = movie_info["release_date"]
     end
     @opinion = Opinion.create(movie_id: @movie.id, user_id: current_user.id, value: params_taste["value"])
