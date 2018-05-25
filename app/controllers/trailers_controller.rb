@@ -12,9 +12,6 @@ class TrailersController < ApplicationController
       discover_options[:genre_ids] = JSON.parse(cookies[:genre_ids]) if cookies[:genre_ids].present?
       discover_options[:moment] = cookies[:moment]
 
-
-
-
       @trailers = TMDB::Discover.movie(discover_options)
       session[:selected_trailers] = @trailers.map { |trailer| trailer['id'] }
       session[:page] = 1
@@ -59,10 +56,14 @@ class TrailersController < ApplicationController
             end
           end
 
-          @next_trailer = TMDB::Movie.details(next_tmdb_id)
-          youtube_id = true if @next_trailer.dig('videos', 'results').try(:first).try(:dig, 'key')
-          puts "=" * 20
-          puts @next_trailer.dig('videos', 'results').try(:first).try(:dig, 'key')
+          if next_tmdb_id.nil?
+            @next_trailer = nil
+          else
+            @next_trailer = TMDB::Movie.details(next_tmdb_id)
+            youtube_id = true if @next_trailer.dig('videos', 'results').try(:first).try(:dig, 'key')
+            puts "=" * 20
+            puts @next_trailer.dig('videos', 'results').try(:first).try(:dig, 'key')
+          end
         end
       end
     end
