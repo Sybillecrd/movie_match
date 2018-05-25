@@ -3,10 +3,6 @@
   <%= link_to image_tag("logo_loupe.png", class: "navbar-wagon-brand"),
   root_path %>
 
-  <%  if current_user.present? %>
-    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-    <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-  <% end %>
 
 
   <!-- Right Navigation -->
@@ -18,7 +14,10 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <%  if current_user.present? %>
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li> <%= link_to "Log Out", destroy_user_session_path, method: :delete %> </li>
         </ul>
