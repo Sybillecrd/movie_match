@@ -38,6 +38,7 @@
 
 .infos {
   padding-left: 0px;
+  color: white;
 
 }
 
@@ -47,6 +48,10 @@
   padding: 0px;
 }
 
+.infos p {
+  font-size: 15px;
+}
+
 
 .synopsis p {
   margin-top: 5px;
@@ -54,3 +59,8 @@
   text-align: justify;
 }
 
+.email-sent {
+  font-size: 15px;
+  margin-top: 10px;
+  color: $grey-typo;
+}

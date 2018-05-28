@@ -7,8 +7,9 @@ class My::MoviesController < ApplicationController
   end
 
   def show
-    movie = Movie.find(params[:id])
-    @movie = TMDB::Movie.details(movie.tmdb_id)
+    @movie_mailer = Movie.find(params[:id])
+    @opinion_mailer = Opinion.find_by(movie_id: @movie_mailer[:id])
+    @movie = TMDB::Movie.details(@movie_mailer.tmdb_id)
   end
 
 end

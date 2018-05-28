@@ -9,14 +9,14 @@
         <%= tmdb_image_tag("#{@movie['poster_path']}", style: "width: 100%;") %>
       </div>
       <div class="infos col-xs-6">
-        <h2><%= @movie['original_title'] %></h2>
+        <h2><%= @movie['original_title'].upcase %></h2>
         <p><%= @movie['release_date'] %></p>
-        <%= @movie['genres'].map { |genre| genre["name"] }.join(', ') %>
+        <p> <%= @movie['genres'].map { |genre| genre["name"] }.join(', ') %></p>
 
-          <% movie_mailer = Movie.find_by(tmdb_id: @movie["id"]) %>
-          <% opinion_mailer = Opinion.find_by(movie_id: movie_mailer[:id]) %>
-          <% if !movie_mailer.released? && !opinion_mailer[:release_mail] %>
-            <%= link_to "Email me at release", movie_notifications_path(movie_mailer), method: :post, class: "btn btn-block btn-mailer" %>
+          <% if !@movie_mailer.released? && !@opinion_mailer[:release_mail] %>
+            <%= link_to "Email me at release", movie_notifications_path(@movie_mailer), method: :post, class: "btn btn-block btn-mailer" %>
+          <% elsif !@movie_mailer.released? && @opinion_mailer[:release_mail] %>
+            <p class="email-sent"> We will send you an email at release</p>
           <% end %>
 
       </div>
@@ -25,7 +25,7 @@
       <p><%= @movie['overview'] %></p>
     </div>
 
-    <%= link_to "< Back to My Movies", my_movies_path, class: "back-link" %>
+    <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
 
   </div>
   <div class="mm-modal">
