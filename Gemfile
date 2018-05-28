@@ -9,7 +9,7 @@ gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
 gem 'devise'
-gem 'omniauth-facebook'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -24,6 +24,7 @@ gem 'inline_svg'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem "letter_opener"
 end
 
 group :development, :test do
