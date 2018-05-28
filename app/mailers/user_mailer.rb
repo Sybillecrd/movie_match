@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @movie = movie
 
-    mail(to: @user.email, subject: "Movie is coming")
+    mail(to: @user.email, subject: "#{@movie.title} is coming")
   end
 
 end
