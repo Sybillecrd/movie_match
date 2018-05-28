@@ -1,0 +1,17 @@
+.btn-block {
+  color: white;
+  background-color: $red-btn;
+  border-radius: 50px;
+  text-decoration: none;
+}
+.btn-block:hover {
+  color: white;
+  background-color: $red-btn-hover;
+  text-decoration: none;
+}
+
+.btn-mailer {
+  white-space: normal;
+  font-size: 12px;
+  margin-top: 10px;
+}
