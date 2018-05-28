@@ -5,4 +5,8 @@ class Movie < ApplicationRecord
   def release_year
     Date.parse(self.release_date).year
   end
+
+  def released?
+    DateTime.now >= release_date
+  end
 end
