@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="mm-modal">
-    <p class="button-quit">x</p>
+    <%= link_to "x", my_movie_path(@movie), class: "button-quit" %>
     <% key = @movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
     <%= render "trailers/youtube_iframe", class: "video", youtube_key: key %>
     <%= link_to "", my_movie_path(@movie), class: "mm-modal-quit" %>
