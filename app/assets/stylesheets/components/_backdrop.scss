@@ -22,6 +22,11 @@ body.flex-column {
       z-index: 10;
       position:relative;
       padding-top: 10px;
+
+      a{
+      text-decoration: none;
+      color: $grey-typo;
+      }
     }
     .mm-modal {
       position: absolute;
@@ -56,6 +61,7 @@ body.flex-column {
         right: 0;
         z-index: -3;
       }
+
     }
   }
 
