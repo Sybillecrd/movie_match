@@ -19,6 +19,14 @@
     <div class="synopsis">
       <p><%= @movie['overview'] %></p>
     </div>
+
+    <div >
+      <% movie_mailer = Movie.find_by(tmdb_id: @movie["id"]) %>
+      <% opinion_mailer = Opinion.find_by(movie_id: movie_mailer[:id]) %>
+      <% if !movie_mailer.released? && !opinion_mailer[:release_mail] %>
+        <%= button_to "Email me when it will be released", movie_notifications_path(movie_mailer), method: :post %>
+      <% end %>
+    </div>
   </div>
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie), class: "button-quit" %>
