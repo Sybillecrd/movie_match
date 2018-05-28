@@ -14,6 +14,8 @@ var windowOnClick = function(event)  {
     }
 }
 
-poster.addEventListener("click", toggleModal);
-buttonQuit.addEventListener("click", toggleModal);
-modal.addEventListener("click", toggleModal);
+if (poster) {
+  poster.addEventListener("click", toggleModal);
+  buttonQuit.addEventListener("click", toggleModal);
+  modal.addEventListener("click", toggleModal);
+}

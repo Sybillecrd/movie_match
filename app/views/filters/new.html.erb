@@ -2,8 +2,10 @@
 
     <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
       <div class="check-box-moment" style="height: 100vh;">
-      <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox"%>
-      <hr>
+        <div id="button">
+          <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox" %>
+          <hr>
+        </div>
     </div>
 
     <h4> Pick your favorite genres:</h4>
