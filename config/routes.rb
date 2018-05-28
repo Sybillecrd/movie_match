@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :filters, only: [:new, :create]
   resources :trailers, only: :index
   resources :opinions, only: [:create, :new]
-  resources :movies, only: [:create, :new]
+  resources :movies, only: [:create, :new] do
+    resources :notifications, only: [:create]
+  end
 
   namespace :my do
     resources :movies, only: [:index, :show]
