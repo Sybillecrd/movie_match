@@ -11,15 +11,22 @@
       <div class="infos col-xs-6">
         <h2><%= @movie['original_title'] %></h2>
         <p><%= @movie['release_date'] %></p>
-        <% @movie['genres'].each do |genre| %>
-        <%= genre['name'] %>
-        <% end %>
+        <%= @movie['genres'].map { |genre| genre["name"] }.join(', ') %>
+
+          <% movie_mailer = Movie.find_by(tmdb_id: @movie["id"]) %>
+          <% opinion_mailer = Opinion.find_by(movie_id: movie_mailer[:id]) %>
+          <% if !movie_mailer.released? && !opinion_mailer[:release_mail] %>
+            <%= link_to "Email me at release", movie_notifications_path(movie_mailer), method: :post, class: "btn btn-block btn-mailer" %>
+          <% end %>
+
       </div>
     </div>
     <div class="synopsis">
       <p><%= @movie['overview'] %></p>
     </div>
+
     <%= link_to "< Back to My Movies", my_movies_path, class: "back-link" %>
+
   </div>
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie), class: "button-quit" %>
