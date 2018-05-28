@@ -9,97 +9,97 @@ Genre.destroy_all
   {
     "tmdb_id": 28,
     "name": "Action",
-    "picture": "cinema-clapperboard.svg"
+    "picture": "action.jpg"
   },
   {
     "tmdb_id": 12,
     "name": "Adventure",
-    "picture": "earth-globe.png"
+    "picture": "adventur.jpg"
   },
   {
     "tmdb_id": 16,
     "name": "Animation",
-    "picture": "princess-face.png"
+    "picture": "animation.jpg"
   },
   {
     "tmdb_id": 35,
     "name": "Comedy",
-    "picture": "theatre-masks.png"
+    "picture": "comedy.jpeg"
   },
   {
     "tmdb_id": 80,
     "name": "Crime",
-    "picture": "fingerprint.png"
+    "picture": "crime.jpg"
   },
   {
     "tmdb_id": 99,
     "name": "Documentary",
-    "picture": "leaf.png"
+    "picture": "documentary.jpg"
   },
   {
     "tmdb_id": 18,
     "name": "Drama",
-    "picture": "drop.png"
+    "picture": "drama.jpg"
   },
   {
     "tmdb_id": 10751,
     "name": "Family",
-    "picture": "kids-couple.png"
+    "picture": "family.jpg"
   },
   {
     "tmdb_id": 14,
     "name": "Fantasy",
-    "picture": "japanese-dragon.png"
+    "picture": "fantasy.jpg"
   },
   {
     "tmdb_id": 36,
     "name": "History",
-    "picture": "sword.png"
+    "picture": "history.jpg"
   },
   {
     "tmdb_id": 27,
     "name": "Horror",
-    "picture": "human-skull.png"
+    "picture": "horror.jpg"
   },
   {
     "tmdb_id": 10402,
     "name": "Music",
-    "picture": "music-player.png"
+    "picture": "music.jpg"
   },
   {
     "tmdb_id": 9648,
     "name": "Mystery",
-    "picture": "halloween-ghost.png"
+    "picture": "mystery.jpg"
   },
   {
     "tmdb_id": 10749,
     "name": "Romance",
-    "picture": "like.png"
+    "picture": "romance.jpg"
   },
   {
     "tmdb_id": 878,
     "name": "Science Fiction",
-    "picture": "outer-space-alien.png"
+    "picture": "sci_fi.jpg"
   },
   {
     "tmdb_id": 10770,
     "name": "TV Movie",
-    "picture": "television.png"
+    "picture": "serie_movie.jpg"
   },
   {
     "tmdb_id": 53,
     "name": "Thriller",
-    "picture": "pipe.png"
+    "picture": "thriller_2.jpg"
   },
   {
     "tmdb_id": 10752,
     "name": "War",
-    "picture": "gun.png"
+    "picture": "war.jpg"
   },
   {
     "tmdb_id": 37,
     "name": "Western",
-    "picture": "sheriff-badge.png"
+    "picture": "western.jpg"
   }
 ]
 

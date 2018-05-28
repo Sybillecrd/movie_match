@@ -5,6 +5,10 @@
   font-size: 16px;
   text-align: center;
 
+  .col-xs-6 {
+    padding: 0px;
+  }
+
 
   input, .checked  {
     display: none;
@@ -13,7 +17,7 @@
     cursor: pointer;
   }
   .picture {
-    height: 100px;
+    height: 60px;
     width: 100px;
   }
 
@@ -22,15 +26,27 @@
     border-radius: 3px;
     padding:18px 5px;
     color: $grey-typo;
-
+    border: 2px solid white;
     font-weight: normal;
-    height: 168px;
-    width: 136px;
+    height: 118px;
+    width: 157px;
+    position: relative;
+    .icon-checked {
+      display: none;
+      height: 10px;
+      width: 10px;
+
+    }
   }
 
   input:checked + .check-box {
-    background: $red-btn;
-    color: black;
+    border: 2px solid rgb(107, 200, 139);
+    .icon-checked {
+      display: inline-block;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
   }
 }
 
