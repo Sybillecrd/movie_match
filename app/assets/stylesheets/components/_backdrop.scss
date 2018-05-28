@@ -23,9 +23,10 @@ body.flex-column {
       position:relative;
       padding-top: 10px;
 
-      a{
+      .back-link {
       text-decoration: none;
       color: $grey-typo;
+      font-size: 12px;
       }
     }
     .mm-modal {
