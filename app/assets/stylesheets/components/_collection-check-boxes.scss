@@ -41,6 +41,8 @@
 
   input:checked + .check-box {
     border: 2px solid rgb(107, 200, 139);
+    background-color: white;
+    color: rgb(15, 15, 15);
     .icon-checked {
       display: inline-block;
       position: absolute;
