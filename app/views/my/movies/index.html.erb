@@ -11,15 +11,7 @@
           </div>
           <div class="movie-infos">
             <%= movie.release_year %>
-            <% if movie.release_date < (DateTime.now - 30).to_s("yyyyMMdd").first(10) %>
-              <%= " - Classic" %>
-            <% elsif movie.release_date > (DateTime.now + 1).to_s("yyyyMMdd").first(10)%>
-              <%= " - Upcoming" %>
-            <% elsif movie.release_date >= (DateTime.now - 30).to_s("yyyyMMdd").first(10) && movie.release_date < (DateTime.now).to_s("yyyyMMdd").first(10) %>
-              <%= " - In theaters" %>
-            <% else %>
-              <%= "" %>
-            <% end %>
+            <%= " - " + movie.status %>
           </div>
             <%= link_to "", my_movie_path(movie), class: "movie-link" %>
         </div>
