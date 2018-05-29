@@ -1,10 +1,14 @@
 module ApplicationHelper
 
   def tmdb_image_tag(image, options = {})
+    image_tag tmdb_image_path(image), options
+  end
+
+  def tmdb_image_path(image)
     if image.present?
-      image_tag "https://image.tmdb.org/t/p/w500" + image, options
+      "https://image.tmdb.org/t/p/w500" + image
     else
-      image_tag "default_photo.png", options
+      "default_photo.png"
     end
   end
 
