@@ -1,26 +1,62 @@
-<div class="container-fluid">
 
-  <h4>My movies</h4>
 
-  <%= "Wishes" %>
-  <%= link_to "Seen", seen_my_movies_path %>
+<div>
+  <!-- Nav tabs -->
+  <ul class="mm-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#watchlist" aria-controls="watchlist" role="tab" data-toggle="tab">Watchlist</a></li>
+    <li role="presentation"><a href="#seen" aria-controls="seen" role="tab" data-toggle="tab">Seen</a></li>
+  </ul>
 
-  <div class="row">
-    <% @movies.each do |movie| %>
-      <div class="col-xs-6">
-        <div class="card">
-          <div class="movie-poster" style="background-image: url(<%= tmdb_image_path(movie.poster) %>)"></div>
-          <div class="movie-title">
-            <%= movie.title %>
-          </div>
-          <div class="movie-infos">
-            <%= movie.release_year %>
-            <%= " - " + movie.status %>
-          </div>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="watchlist">
+      <div class="row">
+        <% @movies.each do |movie| %>
+        <div class="col-xs-6">
+          <div class="card">
+            <div class="movie-poster" style="background-image: url(<%= tmdb_image_path(movie.poster) %>)"></div>
+            <div class="movie-title">
+              <%= movie.title %>
+            </div>
+            <div class="movie-infos">
+              <%= movie.release_year %>
+              <%= " - " + movie.status %>
+            </div>
             <%= link_to "", my_movie_path(movie), class: "movie-link" %>
+          </div>
         </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="seen">
+      <div class="row">
+        <% @seen_movies.each do |movie| %>
+        <div class="col-xs-6">
+          <div class="card">
+            <div class="movie-poster" style="background-image: url(<%= tmdb_image_path(movie.poster) %>)">
+            </div>
+            <div class="movie-title">
+              <%= movie.title %>
+            </div>
+            <div class="movie-infos">
+              <%= movie.release_year %>
+            </div>
+            <%= link_to "", my_movie_path(movie), class: "movie-link" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
