@@ -12,11 +12,7 @@ Rails.application.routes.draw do
   end
 
   namespace :my do
-    resources :movies, only: [:index, :show, :seen_index] do
-      collection do
-        get 'movies', to: 'movies#seen_index', as: 'seen'
-      end
-    end
+    resources :movies, only: [:index, :show]
   end
 
 end

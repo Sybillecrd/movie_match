@@ -1,0 +1,31 @@
+.mm-tabs {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+
+  & > li {
+    flex: 1;
+    background: #CCC;
+    border-top: 3px solid #CCC;
+    box-shadow: inset 0 -4px 10px rgba(black, 0.2);
+    text-align: center;
+
+    a {
+      color: black;
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+    }
+
+    &.active {
+      background-color: #30333a;
+      border-top: 3px solid $red-btn;
+      box-shadow: none;
+      a {
+        color: white;
+      }
+    }
+  }
+}
