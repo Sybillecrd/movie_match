@@ -1,10 +1,20 @@
 <div class="container">
-
-    <div class="check-box-moment" style="height: 100vh; display: flex;height: 100vh; flex-direction: column; justify-content: center;">
-    <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-      <div id="button">
-        <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox"%>
-      </div>
+  <h4> I want to find a movie :</h4>
+  <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
+    <div class="custom-collection-radio-buttons">
+      <%= f.collection_radio_buttons :moment, @moments, :label, :label, checked: @selected_moment, item_wrapper_class: "custom-radio-wrapper" do |input| %>
+        <label class="custom-radio-button-label">
+          <%= input.radio_button %>
+          <div class="custom-radio-button" style="background-image: url(<%= image_path("#{input.object[:slug]}.jpg") %>)">
+            <div class="radio-content-wrapper">
+              <div class="text-icon">
+                <%= input.text %>
+              </div>
+              <%= image_tag "validate.png", class: "icon-checked" %>
+            </div>
+          </div>
+        </label>
+      <% end %>
     </div>
 
     <h4> Pick your favorite genres:</h4>
