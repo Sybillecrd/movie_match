@@ -6,7 +6,7 @@
   <div class="container-fluid backdrop-content">
     <div class="row">
       <div class="poster col-xs-6">
-        <%= tmdb_image_tag("#{@movie['poster_path']}", style: "width: 100%;") %>
+        <%= tmdb_image_tag("#{@movie_tmdb['poster_path']}", style: "width: 100%;") %>
       </div>
       <div class="infos col-xs-6">
         <h2><%= @movie_tmdb['original_title'].upcase %></h2>
