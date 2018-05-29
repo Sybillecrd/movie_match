@@ -1,11 +1,10 @@
 <div class="container">
 
+    <div class="check-box-moment" style="height: 100vh; display: flex;height: 100vh; flex-direction: column; justify-content: center;">
     <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-      <div class="check-box-moment" style="height: 100vh;">
-        <div id="button">
-          <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox" %>
-          <hr>
-        </div>
+      <div id="button">
+        <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox"%>
+      </div>
     </div>
 
     <h4> Pick your favorite genres:</h4>
@@ -27,9 +26,14 @@
       </div>
     </div>
     <div class="col-xs-8 col-xs-offset-2">
-      <%= f.button :submit, class: "btn btn-block"  %>
+      <%= f.button :submit, class: "btn btn-block" %>
     </div>
   <% end %>
 </div>
 
-
+<div class="container">
+  <div class="round">
+    <input type="checkbox" id="checkbox" />
+    <label for="checkbox"></label>
+  </div>
+</div>
