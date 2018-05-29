@@ -9,7 +9,7 @@ module TMDB
         search_date = (DateTime.now - 30).to_s("yyyyMMdd").first(10)
         option_moment = "&primary_release_date.lte=#{search_date}"
       elsif options[:moment].include?("upcoming")
-        search_date = (DateTime.now + 7).to_s("yyyyMMdd").first(10)
+        search_date = (DateTime.now + 1).to_s("yyyyMMdd").first(10)
         option_moment = "&primary_release_date.gte=#{search_date}"
       elsif options[:moment].include?("theaters")
         starting_date = (DateTime.now - 30).to_s("yyyyMMdd").first(10)
