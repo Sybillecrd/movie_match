@@ -16,3 +16,22 @@
   font-size: 12px;
   margin-top: 10px;
 }
+
+.button-like {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+
+}
+
+.btn-success, .btn-dislike {
+  width: 110px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.btn-dislike {
+  border: $grey-typo;
+  background-color: $red-btn;
+  color: white;
+}
