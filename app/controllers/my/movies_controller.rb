@@ -16,12 +16,15 @@ class My::MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @opinion = Opinion.find_by(movie_id: @movie[:id])
     @movie_tmdb = TMDB::Movie.details(@movie.tmdb_id)
+
     allocine = Allocine.new
     allocine_movie_raw = allocine.api(:search, {q: @movie['title']})
     allocine_movie_parsed = JSON.parse allocine_movie_raw
     allocine_movie_code = allocine_movie_parsed["feed"]["movie"][0]["code"]
-    @a = allocine.api(:showtimelist, {movie: allocine_movie_code, lat: '49.451827', long: '1.101424', radius: '20', date: '2018-05-29' })
 
+    theaters_showtimes_raw = allocine.api(:showtimelist, {movie: allocine_movie_code, lat: '49.451827', long: '1.101424', radius: '20', date: '2018-05-29' })
+    theaters_showtimes_parsed = JSON.parse theaters_showtimes_raw
+    @theaters_showtimes = theaters_showtimes_parsed['feed']["theaterShowtimes"].first(3)
 
   end
 
