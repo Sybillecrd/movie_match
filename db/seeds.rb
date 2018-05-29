@@ -59,7 +59,7 @@ Genre.destroy_all
   {
     "tmdb_id": 27,
     "name": "Horror",
-    "picture": "horror.jpg"
+    "picture": "horror_2.jpg"
   },
   {
     "tmdb_id": 10402,
