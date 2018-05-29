@@ -5,7 +5,9 @@
 
 .movie-poster {
   width: 100%;
+  padding-bottom: 150%;
   border: 1px solid rgba(200, 200, 200, 0.8);
+  background-size: cover;
 }
 
 .movie-title {
