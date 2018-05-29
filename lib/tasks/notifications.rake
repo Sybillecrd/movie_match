@@ -5,7 +5,6 @@ namespace :notifications do
       if movie.release_date == (DateTime.now + 1).to_s("yyyyMMdd").first(10)
         movie.users.each do |user|
           if user.opinions.find_by(movie_id: movie.id).release_mail
-            byebug
             UserMailer.movie_release(user, movie)
           end
         end
