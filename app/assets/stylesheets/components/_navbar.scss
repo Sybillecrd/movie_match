@@ -109,18 +109,19 @@
   position: relative;
   z-index: 9999;
 
-  :hover {
-    text-underline: none;
-  }
 }
+.tog-menu > a:hover, a:focus {
+    text-decoration: none;
+  }
 
 .hidden-menu {
+  width: 100%;
   border: 1px solid rgba(50,50,50,1);
   display: none;
   position: absolute;
   right: 0px;
-  top: 71px;
-  background: radial-gradient(rgba(54, 56, 61, 1), rgba(45,45,45,1));
+  top: 70px;
+  background:(rgba(20,20,20,1));
 
 
   ul {
