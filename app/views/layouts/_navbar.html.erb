@@ -29,17 +29,10 @@
   </div>
 
   <div class="hidden-menu">
-    <ul>
-      <li class="dropdown">
-        <a href="#" data-toggle="dropdown">My movies</a>
-        <ul class="dropdown-menu">
-          <li><%= link_to "Wishes", my_movies_path %></li>
-          <li><%= link_to "Seen", seen_my_movies_path %></li>
-        </ul>
-        <li><%= link_to "My preferences", new_filter_path %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-      </li>
-    </ul>
+    <li><%= link_to "My movies", my_movies_path%> </li>
+    <li><%= link_to "My preferences", new_filter_path %></li>
+    <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
   </div>
+
 </div>
 
