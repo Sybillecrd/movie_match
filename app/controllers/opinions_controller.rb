@@ -49,7 +49,6 @@ class OpinionsController < ApplicationController
           break
         end
       end
-
       @next_trailer = TMDB::Movie.details(next_tmdb_id)
       youtube_id = true if @next_trailer.dig('videos', 'results').try(:first).try(:dig, 'key')
       puts "=" * 20
