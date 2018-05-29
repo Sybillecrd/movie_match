@@ -17,21 +17,35 @@
   margin-top: 10px;
 }
 
-.button-like {
+.buttons-like-dislike  {
   display: flex;
   justify-content: space-around;
-  padding-top: 20px;
-
+  padding-top: 60px;
 }
 
-.btn-success, .btn-dislike {
+.button-dislike, .button-like {
   width: 110px;
   height: 40px;
   border-radius: 50px;
+  font-weight: bolder;
 }
 
-.btn-dislike {
-  border: $grey-typo;
-  background-color: $red-btn;
-  color: white;
+.button-like {
+  border: 2px solid $green;
+  color: $green;
+  background-color: transparent;
+  &:focus, &:active, &:hover {
+    background-color: $green;
+    color: white;
+  }
+}
+
+.button-dislike {
+  color: $red-btn;
+  background-color: transparent;
+  border: 2px solid $red-btn;
+  &:focus, &:active, &:hover {
+    background-color: $red-btn;
+    color: white;
+  }
 }

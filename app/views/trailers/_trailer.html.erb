@@ -4,17 +4,17 @@
     <%= render "trailers/youtube_iframe", youtube_key: key %>
   <% end %>
   <%= trailer['title'] %>
-  <div class="button-like">
+  <div class="buttons-like-dislike">
     <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
       <%= f.input :value, input_html: { value: false }, as: :hidden %>
       <%= f.input :tmdb_id, input_html: { value: trailer["id"] }, as: :hidden %>
-      <%= f.button :submit, "Dislike", class: "btn btn-dislike"  %>
+      <%= f.submit "Dislike", class: "button-dislike"  %>
     <% end %>
 
     <%= simple_form_for :opinion, url: opinions_path, method: :post, remote: true do |f| %>
       <%= f.input :value, input_html: { value: true }, as: :hidden %>
       <%= f.input :tmdb_id, input_html: { value: trailer["id"] }, as: :hidden %>
-      <%= f.button :submit, "Like", class: "btn btn-success" %>
+      <%= f.submit "Like", class: "button-like" %>
     <% end %>
   </div>
 
