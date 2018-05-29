@@ -108,6 +108,10 @@
   margin-left: 10px;
   position: relative;
   z-index: 9999;
+
+  :hover {
+    text-underline: none;
+  }
 }
 
 .hidden-menu {
