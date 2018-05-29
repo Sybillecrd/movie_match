@@ -1,4 +1,10 @@
 <div class="container-fluid">
+
+  <h4>My movies</h4>
+
+  <%= "Wishes" %>
+  <%= link_to "Seen", seen_my_movies_path %>
+
   <div class="row">
     <% @movies.each do |movie| %>
       <div class="col-xs-6">
