@@ -1,9 +1,7 @@
 <div class="item <%= "active" if active %>">
   <% key = trailer.dig('videos', 'results').try(:first).try(:dig, 'key') %>
   <% if key.present? %>
-  bite
     <%= render "trailers/youtube_iframe", youtube_key: key %>
-    bite
   <% end %>
   <%= trailer['title'] %>
   <div class="buttons-like-dislike">
