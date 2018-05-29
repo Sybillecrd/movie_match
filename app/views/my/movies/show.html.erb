@@ -27,7 +27,26 @@
       <p><%= @movie_tmdb['overview'] %></p>
     </div>
 
+    <% @theaters_showtimes.each do |theater_showtimes|%>
+      <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
+      <%= theater_showtimes["place"]["theater"]["distance"]%>km
+      <p>
+        <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
+          <% movie_showtime["scr"].each do |screen| %>
+            <% screen["t"].each do |hour|%>
+              <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
+              <% url = movie_showtime["ticketing"] %>
+              <%= link_to content, url %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </p>
+      <hr>
+    <% end %>
+
+
     <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
+    <%= @a %>
 
   </div>
   <div class="mm-modal">
