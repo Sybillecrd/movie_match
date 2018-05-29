@@ -1,0 +1,30 @@
+.custom-collection-radio-buttons {
+  input[type="radio"] {
+    display: none;
+  }
+  .custom-radio-button {
+    display: inline-block;
+    width: 24px;
+    height:  24px;
+    background: rgba(white, 0.5);
+    border: 2px solid black;
+    border-radius: 50%;
+    transition: 200ms ease background;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  input[type="radio"]:checked + .custom-radio-button {
+    background: green;
+    &:after {
+      content: "✔";
+      color: white;
+    }
+  }
+
+  .custom-radio-button-label {
+    display: flex;
+    align-items: center;
+  }
+}

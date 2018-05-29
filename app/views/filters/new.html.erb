@@ -1,9 +1,17 @@
 <div class="container">
 
+  <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
     <div class="check-box-moment" style="height: 100vh; display: flex;height: 100vh; flex-direction: column; justify-content: center;">
-    <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-      <div id="button">
-        <%= f.input :moment, label: "What are you looking for?", collection: @moments, checked: @selected_moment, as: :radio_buttons, type: "checkbox"%>
+      <h4> OIHA ZOIDHAOIZDHOIAZHDOIAZHD</h4>
+      <div id="button" class="custom-collection-radio-buttons">
+        <%= f.collection_radio_buttons :moment, @moments, :to_s, :to_s, checked: @selected_moment do |input| %>
+          <label class="custom-radio-button-label">
+            <%= input.radio_button %>
+            <span class="custom-radio-button"></span>
+            <%= input.text %>
+          </label>
+          <br>
+        <% end %>
       </div>
     </div>
 
