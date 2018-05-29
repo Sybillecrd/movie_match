@@ -9,30 +9,32 @@
         <%= tmdb_image_tag("#{@movie['poster_path']}", style: "width: 100%;") %>
       </div>
       <div class="infos col-xs-6">
-        <h2><%= @movie['original_title'].upcase %></h2>
-        <p><%= @movie['release_date'] %></p>
-        <p> <%= @movie['genres'].map { |genre| genre["name"] }.join(', ') %></p>
+        <h2><%= @movie_tmdb['original_title'].upcase %></h2>
+        <p><%= @movie_tmdb['release_date'] %></p>
+        <p> <%= @movie_tmdb['genres'].map { |genre| genre["name"] }.join(', ') %></p>
 
-          <% if !@movie_mailer.released? && !@opinion_mailer[:release_mail] %>
-            <%= link_to "Email me at release", movie_notifications_path(@movie_mailer), method: :post, class: "btn btn-block btn-mailer" %>
-          <% elsif !@movie_mailer.released? && @opinion_mailer[:release_mail] %>
-            <p class="email-sent"> We will send you an email at release</p>
-          <% end %>
+        <% if !@movie.released? && !@opinion[:release_mail] %>
+          <%= link_to "Email me at release", movie_notifications_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
+        <% elsif !@movie.released? && @opinion[:release_mail] %>
+          <p class="email-sent"> We will send you an email at release</p>
+        <% elsif @movie.released? && !@opinion[:seen] %>
+          <%= link_to "I've seen it", movie_seen_movies_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
+        <% end %>
 
       </div>
     </div>
     <div class="synopsis">
-      <p><%= @movie['overview'] %></p>
+      <p><%= @movie_tmdb['overview'] %></p>
     </div>
 
     <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
 
   </div>
   <div class="mm-modal">
-    <%= link_to "x", my_movie_path(@movie), class: "button-quit" %>
-    <% key = @movie.dig('videos', 'results').try(:first).try(:dig, 'key') %>
+    <%= link_to "x", my_movie_path(@movie_tmdb), class: "button-quit" %>
+    <% key = @movie_tmdb.dig('videos', 'results').try(:first).try(:dig, 'key') %>
     <%= render "trailers/youtube_iframe", class: "video", youtube_key: key %>
-    <%= link_to "", my_movie_path(@movie), class: "mm-modal-quit" %>
+    <%= link_to "", my_movie_path(@movie_tmdb), class: "mm-modal-quit" %>
   </div>
 </div>
 

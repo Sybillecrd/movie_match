@@ -8,10 +8,15 @@ Rails.application.routes.draw do
   resources :opinions, only: [:create, :new]
   resources :movies, only: [:create, :new] do
     resources :notifications, only: [:create]
+    resources :seen_movies, only: [:create]
   end
 
   namespace :my do
-    resources :movies, only: [:index, :show]
+    resources :movies, only: [:index, :show, :seen_index] do
+      collection do
+        get 'movies', to: 'movies#seen_index', as: 'seen'
+      end
+    end
   end
 
 end
