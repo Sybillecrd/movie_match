@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'rest-client'
 gem 'inline_svg'
+gem "geocoder"
 
 
 group :development do
