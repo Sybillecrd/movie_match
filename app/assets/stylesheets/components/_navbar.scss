@@ -78,7 +78,7 @@
 .toggle-menu span, .toggle-menu span:after, .toggle-menu span:before {
   width: 100%;
   height: 2px;
-  background-color: white;
+  background-color: $grey-typo;
   -webkit-transition: all .3s;
   transition: all .3s;
   -webkit-backface-visibility: hidden;
@@ -121,7 +121,7 @@
   position: absolute;
   right: 0px;
   top: 70px;
-  background:(rgba(20,20,20,1));
+  background: #33363B;
 
 
   ul {
@@ -133,7 +133,7 @@
 
   li {
     padding: 15px;
-    border-bottom: 1px solid rgb(50,50,50);
+    border-bottom: 1px solid #56534d;
   }
 
   li:last-child {
@@ -149,7 +149,7 @@
     padding-right:0;
     display:block;
     text-align:left;
-    color: white;
+    color: #c5c0b8;
     font-weight: 400;
   }
 
