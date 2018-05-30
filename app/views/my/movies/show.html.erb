@@ -27,7 +27,7 @@
       <p><%= @movie_tmdb['overview'] %></p>
     </div>
 
-    <% if @movie.status == "In theaters" && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
+    <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
       <% @theaters_showtimes.each do |theater_showtimes|%>
         <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
         <%= theater_showtimes["place"]["theater"]["distance"]%>km
