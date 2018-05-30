@@ -5,7 +5,7 @@
       <%= f.collection_radio_buttons :moment, @moments, :label, :label, checked: @selected_moment, item_wrapper_class: "custom-radio-wrapper" do |input| %>
         <label class="custom-radio-button-label">
           <%= input.radio_button %>
-          <div class="custom-radio-button" style="background-image: url(<%= image_path("#{input.object[:slug]}") %>)">
+          <div class="custom-radio-button" style="background-image: url(<%= image_path("#{input.object[:slug]}.jpg") %>)">
             <div class="radio-content-wrapper">
               <div class="text-icon">
                 <%= input.text %>
@@ -24,6 +24,7 @@
           <div class="col-xs-6">
             <label class="check-box-label">
               <%= input.check_box %>
+              <%= input.object.picture %>
               <div class="check-box" style="background-image: url(<%= image_path input.object.picture %>)">
                 <div class="check-box-filter">
                   <%= image_tag "validate.png", class: "icon-checked" %>
