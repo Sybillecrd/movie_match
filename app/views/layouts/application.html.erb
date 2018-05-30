@@ -30,7 +30,7 @@
   <body class="<%= yield(:body_class) %>">
 
     <%= render "layouts/navbar" %>
-
+    
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
@@ -38,5 +38,7 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= render "layouts/geo_cookie" %>
+
   </body>
 </html>

@@ -15,6 +15,7 @@ class TrailersController < ApplicationController
       @trailers = TMDB::Discover.movie(discover_options)
       session[:selected_trailers] = @trailers.map { |trailer| trailer['id'] }
       session[:page] = 1
+      @movie = nil
 
       if @trailers.any?
 

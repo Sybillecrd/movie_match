@@ -29,6 +29,14 @@ class My::MoviesController < ApplicationController
       end
     end
 
+    if @movie.status == "Classic"
+      url = "https://yts.am/api/v2/list_movies.json?query_term=#{@movie.title}&limit=1"
+      api_data = RestClient.get(url)
+      @datas = JSON.parse(api_data)
+      if @datas["data"]["movie_count"] != 0
+      @movie_torrent = @datas["data"]["movies"].first["torrents"].first["url"]
+      end
+    end
   end
 
 end

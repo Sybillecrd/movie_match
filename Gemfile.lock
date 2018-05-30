@@ -76,6 +76,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
+    geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
@@ -252,6 +253,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass (~> 5.0.9)
+  geocoder
   inline_svg
   jbuilder (~> 2.0)
   letter_opener
