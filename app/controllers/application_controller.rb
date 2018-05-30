@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :password])
   end
 
+  def default_url_options
+  { host: ENV["HOST"] || "www.moviematchnow.com" }
+end
   def user_coordinates
     cookies[:gps].present ? cookies[:gps].split('|') : []
   end

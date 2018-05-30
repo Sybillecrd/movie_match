@@ -13,7 +13,6 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.create(movie_id: @movie.id, user_id: current_user.id, value: params_taste["value"])
 
 
-
     if @movie.status == "In theaters"
       allocine = Allocine.new
       allocine_movie_raw = allocine.api(:search, {q: @movie['title']})
@@ -28,7 +27,6 @@ class OpinionsController < ApplicationController
         end
       end
     end
-
 
 
     current_tmdb_id_index = session[:selected_trailers].index(params[:opinion][:tmdb_id].to_i)
