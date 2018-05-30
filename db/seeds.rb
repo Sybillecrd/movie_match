@@ -24,7 +24,7 @@ Genre.destroy_all
   {
     "tmdb_id": 35,
     "name": "Comedy",
-    "picture": "comedy.jpeg"
+    "picture": "comedy.jpg"
   },
   {
     "tmdb_id": 80,
