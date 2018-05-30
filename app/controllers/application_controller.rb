@@ -12,9 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options
-  { host: ENV["HOST"] || "www.moviematchnow.com" }
-end
-  def user_coordinates
-    cookies[:gps].present ? cookies[:gps].split('|') : []
+    { host: ENV["HOST"] || "www.moviematchnow.com" }
   end
+
+  # def user_coordinates
+  #   cookies[:gps].present ? cookies[:gps].split('|') : []
+  # end
 end
