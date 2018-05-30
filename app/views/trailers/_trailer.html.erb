@@ -1,3 +1,29 @@
+<% if @movie != nil && @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
+  <div class="showtime-modal">
+    <%= link_to "x", trailers_path, class: "" %>
+    <% if @movie.status == "In theaters" && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
+      <h3><%= @movie.title %></h3>
+        <% @theaters_showtimes.each do |theater_showtimes|%>
+          <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
+          <%= theater_showtimes["place"]["theater"]["distance"]%>km
+          <p>
+            <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
+              <% movie_showtime["scr"].each do |screen| %>
+                <% screen["t"].each do |hour|%>
+                  <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
+                  <% url = movie_showtime["ticketing"] %>
+                  <%= link_to content, url %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </p>
+          <hr>
+        <% end %>
+      <% end %>
+    <%= link_to "", trailers_path, class: "" %>
+  </div>
+<% end %>
+
 <div class="item <%= "active" if active %>">
   <% key = trailer.dig('videos', 'results').try(:first).try(:dig, 'key') %>
   <% if key.present? %>
@@ -18,4 +44,8 @@
     <% end %>
   </div>
 
+
+
 </div>
+
+
