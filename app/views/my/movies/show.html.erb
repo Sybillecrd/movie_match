@@ -48,7 +48,12 @@
 
 
     <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
-    <%= @a %>
+
+    <% if @movie.status == "Classic" && @datas["data"]["movie_count"] != 0 %>
+    <div class="skull">
+      <%= link_to image_tag("skull.png"), @movie_torrent %>
+    </div>
+    <% end %>
 
   </div>
   <div class="mm-modal">
