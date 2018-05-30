@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :password])
   end
+
+  def default_url_options
+  { host: ENV["HOST"] || "www.moviematchnow.com" }
+end
 end

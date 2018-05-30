@@ -1,4 +1,5 @@
 require 'tmdb/tmdb'
+require 'allocine'
 
 class OpinionsController < ApplicationController
 
@@ -10,7 +11,6 @@ class OpinionsController < ApplicationController
       movie.release_date = movie_info["release_date"]
     end
     @opinion = Opinion.create(movie_id: @movie.id, user_id: current_user.id, value: params_taste["value"])
-
 
     current_tmdb_id_index = session[:selected_trailers].index(params[:opinion][:tmdb_id].to_i)
     next_tmdb_id_index = current_tmdb_id_index
