@@ -126,14 +126,34 @@
 
   ul {
     list-style: none;
-    padding: 5px 10px;
+    padding: 0px 10px;
     margin-bottom: 0px;
     text-align: left;
   }
 
-  li, a {
-    padding: 10px 10px;
+  li {
+    padding: 15px;
+    border-bottom: 1px solid rgb(50,50,50);
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
+
+
+  a {
+    width:100%;
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+    display:block;
+    text-align:left;
     color: white;
     font-weight: 400;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 }
