@@ -1,7 +1,5 @@
 class FiltersController < ApplicationController
   def new
-
-    byebug
     @genres = Genre.all
 
     Struct.new("Moment", :slug, :label)
