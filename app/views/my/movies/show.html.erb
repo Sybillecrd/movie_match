@@ -28,25 +28,31 @@
     </div>
 
     <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
-      <% @theaters_showtimes.each do |theater_showtimes|%>
-        <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
-        <%= theater_showtimes["place"]["theater"]["distance"]%>km
-        <p>
-          <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
-            <% movie_showtime["scr"].each do |screen| %>
-              <% screen["t"].each do |hour|%>
-                <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
-                <% url = movie_showtime["ticketing"] %>
-                <%= link_to content, url %>
-              <% end %>
-            <% end %>
-          <% end %>
-        </p>
-        <hr>
-      <% end %>
+      <div>
+        <% @theaters_showtimes.each do |theater_showtimes|%>
+        <ul class="mm-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#theater" aria-controls="theater" role="tab" data-toggle="tab"><%= theater_showtimes["place"]["theater"]["name"]%></a></li>
+        </ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="theater">
+                <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
+                <%= theater_showtimes["place"]["theater"]["distance"]%>km
+                <p>
+                  <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
+                    <% movie_showtime["scr"].each do |screen| %>
+                      <% screen["t"].each do |hour|%>
+                        <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
+                        <% url = movie_showtime["ticketing"] %>
+                        <%= link_to content, url %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-
-
     <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
 
     <% if @movie.status == "Classic" && @datas["data"]["movie_count"] != 0 %>
@@ -54,7 +60,6 @@
       <%= link_to image_tag("skull.png"), @movie_torrent %>
     </div>
     <% end %>
-
   </div>
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie_tmdb), class: "button-quit" %>
@@ -63,4 +68,5 @@
     <%= link_to "", my_movie_path(@movie_tmdb), class: "mm-modal-quit" %>
   </div>
 </div>
+
 
