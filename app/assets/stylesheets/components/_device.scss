@@ -21,8 +21,7 @@
   background-color: $red-btn;
   color: white;
   width: 100%;
-
-
+  margin-top: 20px;
 }
 .btn-log-in:hover {
   background-color: $red-btn-hover;
@@ -37,3 +36,15 @@
   color: $grey-background;
 }
 
+.sign-up, .log-in {
+  padding: 0 35px 20px;
+}
+ .title-form {
+  margin-top: 10px;
+ }
+.form-control {
+  height: 35px !important;
+}
+.form-group {
+  margin-bottom: 5px !important;
+}
