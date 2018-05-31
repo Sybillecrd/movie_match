@@ -24,21 +24,15 @@
             <% elsif @movie.released? && !@opinion[:seen] %>
               <%= link_to "I've seen it", movie_seen_movies_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
             <% end %>
-
           </div>
         </div>
       </div>
-
     </div>
     <div class="row">
-
       <div class="body col-md-8 offset-md-2">
-
-
         <div class="synopsis">
           <p><%= @movie_tmdb['overview'] %></p>
         </div>
-
     <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
       <% @theaters_showtimes.each_with_index do |theater_showtimes, index|%>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -50,7 +44,7 @@
                 </a>
               </h4>
             </div>
-            <div id="collapseOne<%= index %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div id="collapseOne<%= index %>" class="collapse" role="tabpanel" aria-labelledby="headingOne">
               <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
                 <div class="panel-body">
                     <% movie_showtime["scr"].each do |screen| %>
@@ -75,7 +69,7 @@
       </div>
     <% end %>
   </div>
-                        
+
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie_tmdb), class: "button-quit" %>
     <% key = @movie_tmdb.dig('videos', 'results').try(:first).try(:dig, 'key') %>
