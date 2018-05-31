@@ -1,7 +1,7 @@
 <% if @movie != nil && @movie.status == "In theaters" && cookies[:gps] != nil && @opinion.value == true && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
   <div class="showtime-modal">
     <a href="#" class="showtime-modal-close">x</a>
-    <h3><%= @movie.title %></h3>
+    <h3> <strong><%= @movie.title %></strong></h3>
     <% @theaters_showtimes.each do |theater_showtimes|%>
       <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
       <%= theater_showtimes["place"]["theater"]["distance"]%>km
@@ -12,9 +12,9 @@
               <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
               <% url = hour["tk"] %>
               <% if url.nil? %>
-                <%= content %>
+                <p class="cine_link"> <%= content %> </p>
               <% else %>
-                <%= link_to content, url, target: "_blank" %>
+                <%= link_to content, url, target: "_blank", class: "cine_link" %>
               <% end %>
             <% end %>
           <% end %>
