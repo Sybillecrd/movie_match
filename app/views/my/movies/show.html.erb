@@ -36,7 +36,7 @@
             <% movie_showtime["scr"].each do |screen| %>
               <% screen["t"].each do |hour|%>
                 <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
-                <% url = movie_showtime["ticketing"] %>
+                <% url = hour["tk"] %>
                 <%= link_to content, url %>
               <% end %>
             <% end %>
