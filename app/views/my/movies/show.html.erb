@@ -2,30 +2,42 @@
 
 
 <div class="backdrop">
-  <div class="backdrop-img" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<%= "https://image.tmdb.org/t/p/w500/#{@movie_tmdb['backdrop_path']}" %>')"></div>
-  <div class="container-fluid backdrop-content">
+  <div class="backdrop-img" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('<%= "https://image.tmdb.org/t/p/w500/#{@movie_tmdb['backdrop_path']}" %>')">
+  </div>
+  <div class="container backdrop-content">
     <div class="row">
-      <div class="poster col-xs-6">
-        <%= tmdb_image_tag("#{@movie_tmdb['poster_path']}", style: "width: 100%;") %>
-      </div>
-      <div class="infos col-xs-6">
-        <h2><%= @movie_tmdb['original_title'].upcase %></h2>
-        <p><%= @movie_tmdb['release_date'] %></p>
-        <p> <%= @movie_tmdb['genres'].map { |genre| genre["name"] }.join(', ') %></p>
 
-        <% if !@movie.released? && !@opinion[:release_mail] %>
-          <%= link_to "Email me at release", movie_notifications_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
-        <% elsif !@movie.released? && @opinion[:release_mail] %>
-          <p class="email-sent"> We will send you an email at release</p>
-        <% elsif @movie.released? && !@opinion[:seen] %>
-          <%= link_to "I've seen it", movie_seen_movies_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
-        <% end %>
+      <div class="header col-md-8 col-offset-2">
+        <div class="row">
+          <div class="poster col-xs-6">
+            <%= tmdb_image_tag("#{@movie_tmdb['poster_path']}", style: "width: 100%;") %>
+          </div>
+          <div class="infos col-xs-6">
+            <h2><%= @movie_tmdb['original_title'].upcase %></h2>
+            <p><%= @movie_tmdb['release_date'] %></p>
+            <p> <%= @movie_tmdb['genres'].map { |genre| genre["name"] }.join(', ') %></p>
 
+            <% if !@movie.released? && !@opinion[:release_mail] %>
+              <%= link_to "Email me at release", movie_notifications_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
+            <% elsif !@movie.released? && @opinion[:release_mail] %>
+              <p class="email-sent"> We will send you an email at release</p>
+            <% elsif @movie.released? && !@opinion[:seen] %>
+              <%= link_to "I've seen it", movie_seen_movies_path(@movie), method: :post, class: "btn btn-block btn-mailer" %>
+            <% end %>
+
+          </div>
+        </div>
       </div>
+
     </div>
-    <div class="synopsis">
-      <p><%= @movie_tmdb['overview'] %></p>
-    </div>
+    <div class="row">
+
+      <div class="body col-md-8 offset-md-2">
+
+
+        <div class="synopsis">
+          <p><%= @movie_tmdb['overview'] %></p>
+        </div>
 
     <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
       <% @theaters_showtimes.each do |theater_showtimes|%>
@@ -39,23 +51,25 @@
                 <% url = hour["tk"] %>
                 <%= link_to content, url %>
               <% end %>
-            <% end %>
+            </p>
+            <hr>
           <% end %>
-        </p>
-        <hr>
-      <% end %>
-    <% end %>
+        <% end %>
 
 
-    <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
+        <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
 
-    <% if @movie.status == "Classic" && @datas["data"]["movie_count"] != 0 %>
-    <div class="skull">
-      <%= link_to image_tag("skull.png"), @movie_torrent %>
+        <% if @movie.status == "Classic" && @datas["data"]["movie_count"] != 0 %>
+        <div class="skull">
+          <%= link_to image_tag("skull.png"), @movie_torrent %>
+        </div>
+        <% end %>
+
+      </div>
+
     </div>
-    <% end %>
 
-  </div>
+    </div>
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie_tmdb), class: "button-quit" %>
     <% key = @movie_tmdb.dig('videos', 'results').try(:first).try(:dig, 'key') %>

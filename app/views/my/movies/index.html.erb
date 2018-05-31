@@ -8,24 +8,28 @@
   </ul>
 
   <!-- Tab panes -->
-  <div class="tab-content container-fluid">
+  <div class="tab-content container">
     <div role="tabpanel" class="tab-pane active" id="watchlist">
-      <div class="row">
-        <% @movies.each do |movie| %>
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="card">
-            <div class="movie-poster" style="background-image: url(<%= tmdb_image_path(movie.poster) %>)"></div>
-            <div class="movie-title">
-              <%= movie.title %>
+      <div class="container">
+
+        <div class="row">
+          <% @movies.each do |movie| %>
+          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+            <div class="card">
+              <div class="movie-poster" style="background-image: url(<%= tmdb_image_path(movie.poster) %>)"></div>
+              <div class="movie-title">
+                <%= movie.title %>
+              </div>
+              <div class="movie-infos">
+                <%= movie.release_year %>
+                <%= " - " + movie.status %>
+              </div>
+              <%= link_to "", my_movie_path(movie), class: "movie-link" %>
             </div>
-            <div class="movie-infos">
-              <%= movie.release_year %>
-              <%= " - " + movie.status %>
-            </div>
-            <%= link_to "", my_movie_path(movie), class: "movie-link" %>
           </div>
+          <% end %>
         </div>
-        <% end %>
+
       </div>
     </div>
     <div role="tabpanel" class="tab-pane" id="seen">
