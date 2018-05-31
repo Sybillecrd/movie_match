@@ -6,7 +6,6 @@ var showtimeModal = document.querySelector(".showtime-modal");
 
 var toggleModal = function() {
     modal.classList.toggle("active");
-    console.log("bite");
 }
 
 var windowOnClick = function(event)  {

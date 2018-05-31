@@ -1,21 +1,50 @@
-.btn-fb, .btn-log-in {
-  color: $grey-typo;
-  background-color: #f8f4ef;
-  border-radius: 3px;
-  padding: 8px 15px;
-}
-.btn-fb:hover {
-  text-decoration: none;
-}
 
 .button {
-  margin: 15px auto;
+  margin: 10px auto;
 }
 
+.button-fb  {
+  color: white;
+  background-color: #365899;
+  border-radius: 3px;
+  padding: 8px 15px;
+  width: 100%;
+
+}
+.button-fb:hover {
+  text-decoration: none;
+  background-color: #32518c;
+  color: white;
+}
+
+.btn-log-in {
+  background-color: $red-btn;
+  color: white;
+  width: 100%;
+  margin-top: 20px;
+}
 .btn-log-in:hover {
-  background-color: #f8f4ef;
+  background-color: $red-btn-hover;
+  color: white;
 }
 
-.form-actions {
-  display: block;
+.link-grey {
+  color: $grey-typo;
+}
+.link-grey:hover {
+  text-decoration: none;
+  color: #969a9b;
+}
+
+.sign-up, .log-in {
+  padding: 0 35px 20px;
+}
+ .title-form {
+  margin-top: 10px;
+ }
+.form-control {
+  height: 35px !important;
+}
+.form-group {
+  margin-bottom: 5px !important;
 }
