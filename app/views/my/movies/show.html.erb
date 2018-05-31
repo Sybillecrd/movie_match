@@ -38,11 +38,11 @@
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= index %>" " aria-expanded="false" aria-controls="collapseOne">
-                  <%= theater_showtimes["place"]["theater"]["name"]%> - <%= theater_showtimes["place"]["theater"]["distance"]%>km
+              <p class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= index %>" class="collapsed" aria-expanded="false" aria-controls="collapseOne">
+                  <strong><%= theater_showtimes["place"]["theater"]["name"]%></strong>  - <%= theater_showtimes["place"]["theater"]["distance"]%>km
                 </a>
-              </h4>
+              </p>
             </div>
             <div id="collapseOne<%= index %>" class="collapse" role="tabpanel" aria-labelledby="headingOne">
               <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
@@ -51,7 +51,10 @@
                       <% screen["t"].each do |hour|%>
                         <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
                         <% url = hour["tk"] %>
-                        <%= link_to content, url %>
+                        <%= link_to url, class: "btn btn-default btn-ticket" do %>
+                          <svg width="20" height="17" xmlns="http://www.w3.org/2000/svg"><path d="M11.938 4.135L5.395 7.913a.667.667 0 0 0-.244.91l2 3.465a.667.667 0 0 0 .91.244l6.544-3.778a.667.667 0 0 0 .244-.91l-2-3.465a.667.667 0 0 0-.91-.244zm2.03 3.96L7.81 11.651 6.032 8.57l6.158-3.555 1.778 3.08zm1.746-4.087l.77-.444L14.928.869a1.333 1.333 0 0 0-1.821-.488L1.56 7.048a1.333 1.333 0 0 0-.488 1.821l1.555 2.695.77-.445a.889.889 0 0 1 .889 1.54l-.77.444 1.556 2.694a1.333 1.333 0 0 0 1.821.488L18.44 9.62a1.333 1.333 0 0 0 .488-1.822l-1.555-2.694-.77.445a.889.889 0 0 1-.889-1.54zm1.333 2.31l1.111 1.924a.445.445 0 0 1-.162.607L6.449 15.516a.445.445 0 0 1-.607-.163L4.73 13.428A1.78 1.78 0 0 0 5.381 11a1.78 1.78 0 0 0-2.428-.65L1.842 8.424a.445.445 0 0 1 .162-.607L13.551 1.15a.445.445 0 0 1 .607.163l1.112 1.924a1.78 1.78 0 0 0-.651 2.429 1.78 1.78 0 0 0 2.428.65z" fill="#000" fill-rule="nonzero"/></svg>
+                          <%= content %>
+                        <% end %>
                       <% end %>
                     <% end %>
                 </div>
