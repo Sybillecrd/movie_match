@@ -1,0 +1,39 @@
+.panel-heading {
+  background-color: #394053 !important;
+
+
+
+  p {
+    font-size: 14px;
+    color: $grey-typo;
+  }
+  .panel-body {
+      margin: 10px !important;
+  }
+
+  a {
+    display: block;
+    &:after {
+      float: right;
+      display: flex;
+      justify-content: center;
+      content: image-url("up-arrows.png");
+
+    }
+    &.collapsed {
+      &:after {
+      content: image-url("down-arrows.png");
+      }
+    }
+  }
+  &:hover {
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+  a.btn-ticket {
+    margin-bottom: 5px;
+    text-align: center;
+  }
