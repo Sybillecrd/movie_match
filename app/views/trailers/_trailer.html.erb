@@ -24,10 +24,10 @@
   </div>
 <% end %>
 
-<div class="item <%= "active" if active %>">
+<div class="container-fluid item <%= "active" if active %>">
   <% key = trailer.dig('videos', 'results').try(:first).try(:dig, 'key') %>
   <% if key.present? %>
-    <%= render "trailers/youtube_iframe", youtube_key: key %>
+    <%= render "trailers/youtube_iframe", class: "video", youtube_key: key %>
   <% end %>
   <%= trailer['title'] %>
   <div class="buttons-like-dislike">
