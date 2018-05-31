@@ -28,17 +28,21 @@
     </div>
 
     <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
-      <div>
+
+
         <% @theaters_showtimes.each do |theater_showtimes|%>
-        <ul class="mm-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#theater" aria-controls="theater" role="tab" data-toggle="tab"><%= theater_showtimes["place"]["theater"]["name"]%></a></li>
-        </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="theater">
-                <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
-                <%= theater_showtimes["place"]["theater"]["distance"]%>km
-                <p>
-                  <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <%= theater_showtimes["place"]["theater"]["name"]%> - <%= theater_showtimes["place"]["theater"]["distance"]%>km
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+              <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
+                <div class="panel-body">
                     <% movie_showtime["scr"].each do |screen| %>
                       <% screen["t"].each do |hour|%>
                         <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
@@ -47,12 +51,13 @@
                       <% end %>
                     <% end %>
                   <% end %>
-                </p>
+                </div>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
+
     <%= link_to "< Back to my movies", my_movies_path, class: "back-link" %>
 
     <% if @movie.status == "Classic" && @datas["data"]["movie_count"] != 0 %>
@@ -60,7 +65,6 @@
       <%= link_to image_tag("skull.png"), @movie_torrent %>
     </div>
     <% end %>
-  </div>
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie_tmdb), class: "button-quit" %>
     <% key = @movie_tmdb.dig('videos', 'results').try(:first).try(:dig, 'key') %>
@@ -68,5 +72,16 @@
     <%= link_to "", my_movie_path(@movie_tmdb), class: "mm-modal-quit" %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
