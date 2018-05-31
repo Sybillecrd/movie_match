@@ -1,5 +1,5 @@
 .showtime-modal {
-  background-color: rgba(10,10,20,0.9);
+  background-color: rgb(250,250,250);
   border-radius: 3px;
   padding: 0 20px;
   position: absolute;
@@ -10,4 +10,19 @@
   right: 10px;
   height: 100%;
   overflow: auto;
+  p {
+    text-align: center;
+  }
+  .title {
+    font-weight: bolder;
+  }
+  .cine_link {
+    border: 1px solid $grey-typo ;
+    border-radius: 3px;
+    display: inline-block;
+    height: 30px;
+    width: 90px;
+    margin-bottom: 5px;
+
+  }
 }
