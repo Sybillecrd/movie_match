@@ -39,7 +39,7 @@
           <p><%= @movie_tmdb['overview'] %></p>
         </div>
 
-      <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
+      <% if @movie.status == "In theaters" && cookies[:gps] != nil && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
         <% @theaters_showtimes.each_with_index do |theater_showtimes, index|%>
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
