@@ -57,7 +57,11 @@
                       <% screen["t"].each do |hour|%>
                         <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
                         <% url = hour["tk"] %>
-                        <%= link_to content, url %>
+                        <% if url.nil? %>
+                          <%= content %>
+                        <% else %>
+                          <%= link_to content, url, target: "_blank" %>
+                        <% end %>
                       <% end %>
                     <% end %>
                 </div>
@@ -75,7 +79,7 @@
       </div>
     <% end %>
   </div>
-                        
+
   <div class="mm-modal">
     <%= link_to "x", my_movie_path(@movie_tmdb), class: "button-quit" %>
     <% key = @movie_tmdb.dig('videos', 'results').try(:first).try(:dig, 'key') %>
