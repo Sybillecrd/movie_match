@@ -23,6 +23,12 @@ body.flex-column {
       position:relative;
       padding-top: 10px;
 
+      .row {
+        display: flex;
+        justify-content: center;
+
+      }
+
       .back-link {
       text-decoration: none;
       color: $grey-typo;
