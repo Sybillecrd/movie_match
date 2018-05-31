@@ -11,14 +11,13 @@
   });
 
   if (gps === undefined) {
-    console.log("here")
     navigator.geolocation.getCurrentPosition(function(location) {
       var lat = location.coords.latitude;
       var lng = location.coords.longitude;
 
       var name = "gps"
       var value = lat + "|" + lng;
-      var hours = 5;
+      var hours = 24;
       var expires = "";
 
       var date = new Date();

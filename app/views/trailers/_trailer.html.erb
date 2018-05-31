@@ -1,4 +1,4 @@
-<% if @movie != nil && @movie.status == "In theaters" && @opinion.value == true && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
+<% if @movie != nil && @movie.status == "In theaters" && cookies[:gps] != nil && @opinion.value == true && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
   <div class="showtime-modal">
     <a href="#" class="showtime-modal-close">x</a>
     <h3><%= @movie.title %></h3>
