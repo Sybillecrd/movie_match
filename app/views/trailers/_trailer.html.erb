@@ -12,7 +12,11 @@
                 <% screen["t"].each do |hour|%>
                   <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
                   <% url = hour["tk"] %>
-                  <%= link_to content, url, target: "_blank" %>
+                  <% if url.nil? %>
+                    <%= content %>
+                  <% else %>
+                    <%= link_to content, url, target: "_blank" %>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
