@@ -34,23 +34,22 @@
 
       <div class="body col-md-8 offset-md-2">
 
+
         <div class="synopsis">
           <p><%= @movie_tmdb['overview'] %></p>
         </div>
 
-        <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
-          <% @theaters_showtimes.each do |theater_showtimes|%>
-            <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
-            <%= theater_showtimes["place"]["theater"]["distance"]%>km
-            <p>
-              <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
-                <% movie_showtime["scr"].each do |screen| %>
-                  <% screen["t"].each do |hour|%>
-                    <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
-                    <% url = movie_showtime["ticketing"] %>
-                    <%= link_to content, url %>
-                  <% end %>
-                <% end %>
+    <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
+      <% @theaters_showtimes.each do |theater_showtimes|%>
+        <p> <%= theater_showtimes["place"]["theater"]["name"]%> -
+        <%= theater_showtimes["place"]["theater"]["distance"]%>km
+        <p>
+          <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
+            <% movie_showtime["scr"].each do |screen| %>
+              <% screen["t"].each do |hour|%>
+                <% content = "#{hour["$"]} - #{movie_showtime["version"]["original"] == "true" ? "VO" : "VF"}" %>
+                <% url = hour["tk"] %>
+                <%= link_to content, url %>
               <% end %>
             </p>
             <hr>
