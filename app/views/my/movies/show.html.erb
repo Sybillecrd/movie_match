@@ -28,19 +28,17 @@
     </div>
 
     <% if @movie.status == "In theaters" && @allocine_movie_parsed["feed"]["movie"] != nil && @theaters_showtimes_parsed["feed"]["totalResults"] != 0 %>
-
-
-        <% @theaters_showtimes.each do |theater_showtimes|%>
+      <% @theaters_showtimes.each_with_index do |theater_showtimes, index|%>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= index %>" " aria-expanded="false" aria-controls="collapseOne">
                   <%= theater_showtimes["place"]["theater"]["name"]%> - <%= theater_showtimes["place"]["theater"]["distance"]%>km
                 </a>
               </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div id="collapseOne<%= index %>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <% theater_showtimes["movieShowtimes"].each do |movie_showtime| %>
                 <div class="panel-body">
                     <% movie_showtime["scr"].each do |screen| %>
@@ -50,8 +48,8 @@
                         <%= link_to content, url %>
                       <% end %>
                     <% end %>
-                  <% end %>
                 </div>
+              <% end %>
             </div>
           </div>
         </div>
