@@ -1,42 +1,49 @@
 <div class="container">
-  <h4> I want to find a movie :</h4>
-  <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
-    <div class="custom-collection-radio-buttons">
-      <%= f.collection_radio_buttons :moment, @moments, :label, :label, checked: @selected_moment, item_wrapper_class: "custom-radio-wrapper" do |input| %>
-        <label class="custom-radio-button-label">
-          <%= input.radio_button %>
-          <div class="custom-radio-button" style="background-image: url(<%= image_path("#{input.object[:slug]}.jpg") %>)">
-            <div class="radio-content-wrapper">
-              <div class="text-icon">
-                <%= input.text %>
-              </div>
-              <%= image_tag "validate.png", class: "icon-checked" %>
-            </div>
-          </div>
-        </label>
-      <% end %>
-    </div>
+  <div class="row filters">
+    <div class="col-xs-12 col-md-8 offset-md-2">
 
-    <h4> Pick your favorite genres:</h4>
-    <div class="collection-check-boxes">
-      <div class="row">
-        <%= f.collection_check_boxes :genre_ids, @genres, :tmdb_id, :name, checked: @selected_genre_ids do |input| %>
-          <div class="col-xs-6">
-            <label class="check-box-label">
-              <%= input.check_box %>
-              <div class="check-box" style="background-image: url(<%= image_path input.object.picture %>)">
-                <div class="check-box-filter">
+      <h4> I want to find a movie :</h4>
+      <%= simple_form_for :filter, url: filters_path, method: :post do |f| %>
+        <div class="custom-collection-radio-buttons col-xs-12">
+          <%= f.collection_radio_buttons :moment, @moments, :label, :label, checked: @selected_moment, item_wrapper_class: "custom-radio-wrapper" do |input| %>
+            <label class="custom-radio-button-label">
+              <%= input.radio_button %>
+              <div class="custom-radio-button" style="background-image: url(<%= image_path("#{input.object[:slug]}.jpg") %>)">
+                <div class="radio-content-wrapper">
+                  <div class="text-icon">
+                    <%= input.text %>
+                  </div>
                   <%= image_tag "validate.png", class: "icon-checked" %>
-                  <div class="text-icon" > <%= input.text %></div>
                 </div>
               </div>
             </label>
+          <% end %>
+        </div>
+
+        <h4> Pick your favorite genres:</h4>
+        <div class="collection-check-boxes">
+          <div class="row">
+            <%= f.collection_check_boxes :genre_ids, @genres, :tmdb_id, :name, checked: @selected_genre_ids do |input| %>
+              <div class="col-xs-6">
+                <label class="check-box-label">
+                  <%= input.check_box %>
+                  <div class="check-box" style="background-image: url(<%= image_path input.object.picture %>)">
+                    <div class="check-box-filter">
+                      <%= image_tag "validate.png", class: "icon-checked" %>
+                      <div class="text-icon" > <%= input.text %></div>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+        <div class="col-xs-8 col-xs-offset-2">
+          <%= f.button :submit, class: "btn btn-block btn-save-margin" %>
+        </div>
+      <% end %>
+
+
     </div>
-    <div class="col-xs-8 col-xs-offset-2">
-      <%= f.button :submit, class: "btn btn-block btn-save-margin" %>
-    </div>
-  <% end %>
+  </div>
 </div>
