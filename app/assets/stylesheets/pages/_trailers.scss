@@ -1,3 +1,9 @@
 body {
   background: radial-gradient(#34363C, $grey-background);
 }
+
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
