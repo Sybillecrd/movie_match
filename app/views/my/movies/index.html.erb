@@ -35,7 +35,7 @@
     <div role="tabpanel" class="tab-pane" id="seen">
       <div class="row">
         <% @seen_movies.each do |movie| %>
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
           <div class="card">
             <div class="movie-poster" style="background-image: url(<%= tmdb_image_path(movie.poster) %>)">
             </div>
